@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -19,4 +20,9 @@ Route::get('/', function () {
     return Inertia::render('Index', [
         'message' => $message
     ]);
+});
+
+Route::controller(AuthController::class)->prefix('auth')->group(function () {
+    Route::get('/redirect', 'redirect')->name('auth.redirect');
+    Route::get('/callback', 'callback')->name('auth.callback');
 });
