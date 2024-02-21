@@ -1,6 +1,6 @@
 <template>
     <TheNavbar />
-    <div>
+    <div class="h-screen">
         <slot></slot>
     </div>
 </template>
