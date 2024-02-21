@@ -27,6 +27,7 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
     Route::get('/', 'index')->name('auth.index');
     Route::get('/redirect', 'redirect')->name('auth.redirect');
     Route::get('/google/callback', 'callback')->name('auth.callback');
+    Route::post('/logout', 'logout')->name('auth.logout');
 });
 
 Route::get("/albums", function (Lastfm $lastfm) {

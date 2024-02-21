@@ -26,12 +26,14 @@
                 <fwb-avatar :img="user?.avatar" rounded class="cursor-pointer" @click="toggleRightMenu" />
                 <div class="absolute right-0" :class="!isRightMenuShown ? 'hidden' : ''">
                     <fwb-list-group>
-                        <fwb-list-group-item hover>Item 1</fwb-list-group-item>
+                        <fwb-list-group-item hover @click="$emit('logout')">
+                            Logout
+                        </fwb-list-group-item>
                     </fwb-list-group>
                 </div>
             </div>
         </template>
-        
+
     </fwb-navbar>
 </template>
   
@@ -39,7 +41,7 @@
 
 import { Link } from "@inertiajs/vue3";
 
-import { ref } from "vue";
+import { ref, defineProps, defineEmits } from "vue";
 
 import {
     FwbAvatar,
@@ -72,4 +74,8 @@ const { isAuthenticated, user } = defineProps<TheNavbarProps>();
 const toggleRightMenu = () => {
     isRightMenuShown.value = !isRightMenuShown.value;
 }
+
+// Define emits
+const emits = defineEmits(['logout']);
+
 </script>
