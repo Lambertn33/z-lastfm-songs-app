@@ -46,6 +46,8 @@ import { Link } from "@inertiajs/vue3";
 
 import { ref, defineProps, defineEmits } from "vue";
 
+import { UserInterface } from "../../interfaces";
+
 import {
     FwbAvatar,
     FwbButton,
@@ -57,12 +59,6 @@ import {
     FwbNavbarLogo,
 } from 'flowbite-vue'
 
-interface UserInterface {
-    id: number;
-    name: string;
-    email: string;
-    avatar: string;
-}
 
 interface TheNavbarProps {
     user: UserInterface | null;

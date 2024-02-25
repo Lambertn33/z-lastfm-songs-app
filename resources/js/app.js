@@ -1,9 +1,18 @@
 import { createApp, h } from 'vue'
+
 import { createInertiaApp } from '@inertiajs/vue3'
+
 import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
+
+import { OhVueIcon, addIcons } from "oh-vue-icons";
+
+import { FaUserAlt, FaLocationArrow } from "oh-vue-icons/icons";
+
 import MainLayout from "./components/MainLayout.vue"
 
 import '../css/app.css'
+
+addIcons(FaUserAlt, FaLocationArrow);
 
 createInertiaApp({
   resolve: name => {
@@ -12,9 +21,12 @@ createInertiaApp({
     page.default.layout = page.default.layout || MainLayout
     return page
   },
+
+
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      .component("v-icon", OhVueIcon)
       .use(ZiggyVue)
       .mount(el)
   },

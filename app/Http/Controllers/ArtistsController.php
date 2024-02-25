@@ -10,24 +10,31 @@ class ArtistsController extends Controller
 {
     public function index(Request $request)
     {
-        return Inertia::render('ArtistSearch');
-        // $user = "Beyonce";
+        if ($request->query('artist')) {
 
-        // $artistServices = app(ArtistsServices::class);
+            $user = $request->query('artist');
 
-        // $userBasicInfo = $artistServices->getUserBasicInfo($user);
+            $artistServices = app(ArtistsServices::class);
+    
+            $userBasicInfo = $artistServices->getUserBasicInfo($user);
+    
+            $userToAlbums = $artistServices->getUserTopAlbums($user);
+    
+            $userTopArtists = $artistServices->getUserTopArtists($user);
+    
+            $userRecentTracks = $artistServices->getUserRecentTracks($user);
+    
+            return Inertia::render('Artists/ArtistView', [
+                'info' => $userBasicInfo,
+                'top_albums' => $userToAlbums,
+                'top_artists' => $userTopArtists,
+                'recent_tracks' => $userRecentTracks,
+                'query' => $user
+            ]);
+        } else {
 
-        // $userToAlbums = $artistServices->getUserTopAlbums($user);
+            return Inertia::render('Artists/ArtistSearch');
+        }
 
-        // $userTopArtists = $artistServices->getUserTopArtists($user);
-
-        // $userRecentTracks = $artistServices->getUserRecentTracks($user);
-
-        // return Inertia::render('Artists', [
-        //     'info' => $userBasicInfo,
-        //     'top_albums' => $userToAlbums,
-        //     'top_artists' => $userTopArtists,
-        //     'recent_tracks' => $userRecentTracks
-        // ]);
     }
 }
