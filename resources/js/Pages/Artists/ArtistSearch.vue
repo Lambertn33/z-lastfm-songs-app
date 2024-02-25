@@ -9,6 +9,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { useForm } from '@inertiajs/vue3'
 
 import { FwbButton, FwbInput } from 'flowbite-vue'
