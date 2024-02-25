@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Barryvanveen\Lastfm\Lastfm;
+use App\Http\Controllers\ArtistsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +30,6 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
     Route::post('/logout', 'logout')->name('auth.logout');
 });
 
-Route::get("/albums", function (Lastfm $lastfm) {
-    $albums = $lastfm->userTopAlbums('Rihanna')->get();
-
-    return $albums;
+Route::prefix('artists')->controller(ArtistsController::class)->group(function () {
+    Route::get('/', 'index');
 });

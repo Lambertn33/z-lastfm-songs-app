@@ -13,7 +13,10 @@
                     <Link href="/">Home</Link>
                 </fwb-navbar-link>
                 <fwb-navbar-link>
-                    <Link href="/">Search</Link>
+                    <Link href="/artists">Artists</Link>
+                </fwb-navbar-link>
+                <fwb-navbar-link>
+                    <Link href="/albums">Albums</Link>
                 </fwb-navbar-link>
             </fwb-navbar-collapse>
         </template>
