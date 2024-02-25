@@ -29,7 +29,9 @@ export interface ArtistTopAlbumInterface {
 }
 
 export interface ArtistRecentTrackInterface {
-    artist: ArtistInterface;
+    artist: {
+        "#text": string;
+    };
     image?: {
         size: string;
         "#text": string;
