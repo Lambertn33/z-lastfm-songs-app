@@ -7,7 +7,7 @@
         <!--top artists-->
         <div class="flex-col">
             <h3 class="text-center text-white text-2xl font-bold">Top Artists</h3>
-            <TopArtists :top_artists="top_artists" />
+            <TopArtists :similar_artists="similar_artists" />
         </div>
 
         <div class="flex-col justify-center items-center">
@@ -17,7 +17,7 @@
         </div>
         <div class="">
             <h3 class="text-center text-white text-2xl font-bold">Recent Tracks</h3>
-            <RecentTracks :recent_tracks="recent_tracks" />
+            <TopTracks :top_tracks="top_tracks" />
         </div>
     </div>
 </template>
@@ -26,7 +26,7 @@
 
 import { defineProps } from 'vue';
 
-import { ArtistInterface, ArtistRecentTrackInterface, ArtistTopAlbumInterface } from '../../interfaces';
+import { ArtistInterface, ArtistTopAlbumInterface, ArtistTopTrackInterface, SimilarArtistInterface} from '../../interfaces';
 
 import TopAlbums from '../../components/artist/TopAlbums.vue';
 
@@ -34,17 +34,17 @@ import ArtistInfo from '../../components/artist/ArtistInfo.vue';
 
 import TopArtists from "../../components/artist/TopArtists.vue";
 
-import RecentTracks from '../../components/artist/RecentTracks.vue';
+import TopTracks from '../../components/artist/TopTracks.vue';
 
 interface ArtistViewProps {
     query: string;
-    recent_tracks: ArtistRecentTrackInterface[],
+    top_tracks: ArtistTopTrackInterface[],
     top_albums: ArtistTopAlbumInterface[],
-    top_artists: ArtistInterface[],
+    similar_artists: SimilarArtistInterface[],
     info: ArtistInterface
 }
 
-const { info, recent_tracks, top_albums, top_artists } = defineProps<ArtistViewProps>()
+const { info, top_tracks, top_albums, similar_artists } = defineProps<ArtistViewProps>()
 
 
 </script>

@@ -12,29 +12,31 @@ class ArtistsController extends Controller
     {
         if ($request->query('artist')) {
 
-            $user = $request->query('artist');
+            $artist = $request->query('artist');
 
             $artistServices = app(ArtistsServices::class);
-    
-            $userBasicInfo = $artistServices->getUserBasicInfo($user);
-    
-            $userToAlbums = $artistServices->getUserTopAlbums($user);
-    
-            $userTopArtists = $artistServices->getUserTopArtists($user);
-    
-            $userRecentTracks = $artistServices->getUserRecentTracks($user);
-    
-            return Inertia::render('Artists/ArtistView', [
-                'info' => $userBasicInfo,
-                'top_albums' => $userToAlbums,
-                'top_artists' => $userTopArtists,
-                'recent_tracks' => $userRecentTracks,
-                'query' => $user
-            ]);
+
+            $artistBasicInfo = $artistServices->getArtistBasicInfo($artist);
+
+            $artistToAlbums = $artistServices->getArtistTopAlbums($artist);
+
+            $artistSimilarArtists = $artistServices->geArtistSimilarArtists($artist);
+
+            $artistTopTracks = $artistServices->getArtistTopTracks($artist);
+
+            return Inertia::render(
+                'Artists/ArtistView',
+                [
+                    'info' => $artistBasicInfo,
+                    'top_albums' => $artistToAlbums,
+                    'similar_artists' => $artistSimilarArtists,
+                    'top_tracks' => $artistTopTracks,
+                    'query' => $artist
+                ]
+            );
         } else {
 
             return Inertia::render('Artists/ArtistSearch');
         }
-
     }
 }

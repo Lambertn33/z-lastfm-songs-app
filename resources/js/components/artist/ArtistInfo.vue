@@ -12,10 +12,6 @@
                         <span class="text-blue-400 font-semibold">{{ artist.name }}</span>
                     </a>
                 </div>
-                <div v-if="artist.country" class="flex items-center gap-2">
-                    <v-icon name="fa-location-arrow" fill="white" />
-                    <span class="text-white font-semibold">{{ artist.country }}</span>
-                </div>
             </div>
         </div>
     </div>

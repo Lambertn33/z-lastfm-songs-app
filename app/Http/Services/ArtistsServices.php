@@ -2,42 +2,67 @@
 
 namespace App\Http\Services;
 
-use Barryvanveen\Lastfm\Lastfm;
+use Illuminate\Support\Facades\Http;
 
 class ArtistsServices
 {
-    private $lastFm;
+    private $key;
+    private $url;
+    private $httpClient;
 
-    public function __construct(Lastfm $lastFm)
+    public function __construct()
     {
-        $this->lastFm = $lastFm;
+        $this->key = env('LASTFM_API_KEY');
+        $this->url = env('LASTFM_API_URL');
+        $this->httpClient = Http::class;
     }
 
-    public function getUserBasicInfo(string $username)
+    private function sendRequest(string $method, string $username, int $perPage = 1, int $limit = 20): \Illuminate\Http\Client\Response
     {
-        $userBasicInfo = $this->lastFm->userInfo($username)->get();
+        $queryParams = http_build_query([
+            'artist' => $username,
+            'api_key' => $this->key,
+            'format' => 'json'
+        ]);
 
-        return $userBasicInfo;
+        $url = "{$this->url}?method={$method}&{$queryParams}&page={$perPage}&limit={$limit}";
+
+        return $this->httpClient::post($url);
     }
 
-    public function getUserTopAlbums(string $username)
+    public function getArtistBasicInfo(string $username)
     {
-        $userTopAlbums = $this->lastFm->userTopAlbums($username)->limit(10)->page(2)->get();
+        $response = $this->sendRequest('artist.getinfo', $username);
 
-        return $userTopAlbums;
+        $data = $response->json();
+
+        return $data['artist'];
     }
 
-    public function getUserTopArtists(string $username)
+    public function getArtistTopAlbums(string $username, int $page = 1, int $limit = 10)
     {
-        $userTopArtists = $this->lastFm->userTopArtists($username)->limit(10)->page(2)->get();
+        $response = $this->sendRequest('artist.gettopalbums', $username, $page, $limit);
 
-        return $userTopArtists;
+        $data = $response->json();
+
+        return $data['topalbums']['album'];
     }
 
-    public function getUserRecentTracks(string $username)
+    public function geArtistSimilarArtists(string $username, int $page = 1, int $limit = 10)
     {
-        $userRecentTracks = $this->lastFm->userRecentTracks($username)->limit(10)->page(2)->get();
+        $response = $this->sendRequest('artist.getsimilar', $username, $page, $limit);
 
-        return $userRecentTracks;
+        $data = $response->json();
+
+        return $data['similarartists']['artist'];
+    }
+
+    public function getArtistTopTracks(string $username, int $page = 1, int $limit = 10)
+    {
+      $response = $this->sendRequest('artist.gettoptracks', $username, $page, $limit);
+
+      $data = $response->json();
+
+      return $data['toptracks']['track'];
     }
 }
