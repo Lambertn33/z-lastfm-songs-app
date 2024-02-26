@@ -31,7 +31,7 @@ class ArtistsController extends Controller
                     'top_albums' => $artistToAlbums,
                     'similar_artists' => $artistSimilarArtists,
                     'top_tracks' => $artistTopTracks,
-                    'query' => $artist
+                    'artist_name' => $artist
                 ]
             );
         } else {

@@ -13,20 +13,29 @@
             </div>
         </div>
     </div>
+    <fwb-button>
+        <Link :href="route('artist.top_albums.index',
+            { 'artist': artist_name }
+        )">
+        View More...
+        </Link>
+    </fwb-button>
 </template>
 
 <script lang="ts" setup>
 
 import { defineProps } from 'vue';
 
-import { FwbAvatar } from 'flowbite-vue';
+import { Link } from '@inertiajs/vue3'
+
+import { FwbAvatar, FwbButton } from 'flowbite-vue';
 
 import { ArtistTopAlbumInterface } from '../../interfaces';
 
 interface TopAlbumsInterface {
-    top_albums: ArtistTopAlbumInterface[]
+    top_albums: ArtistTopAlbumInterface[],
+    artist_name: string
 }
 
-const { top_albums } = defineProps<TopAlbumsInterface>()
-
+const { top_albums, artist_name } = defineProps<TopAlbumsInterface>();
 </script>

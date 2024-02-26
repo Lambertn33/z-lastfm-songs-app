@@ -1,22 +1,22 @@
 <template>
-    <fwb-navbar class="border-b-2 border-gray-200">
+    <fwb-navbar class="bg-[#262626]">
 
         <template #logo>
-            <fwb-navbar-logo alt="Flowbite logo" image-url="/images/logo.png" link="#">
-                Songs app
+            <fwb-navbar-logo alt="Flowbite logo" image-url="/images/logo.png" link="/">
+                <span class="text-white">Songs app</span>
             </fwb-navbar-logo>
         </template>
 
         <template #default="{ isShowMenu }">
             <fwb-navbar-collapse :is-show-menu="isShowMenu">
                 <fwb-navbar-link>
-                    <Link href="/">Home</Link>
+                    <Link href="/" class="text-white">Home</Link>
                 </fwb-navbar-link>
                 <fwb-navbar-link>
-                    <Link href="/artists">Artists</Link>
+                    <Link href="/artists" class="text-white">Artists</Link>
                 </fwb-navbar-link>
                 <fwb-navbar-link>
-                    <Link href="/albums">Albums</Link>
+                    <Link href="/albums" class="text-white">Albums</Link>
                 </fwb-navbar-link>
             </fwb-navbar-collapse>
         </template>

@@ -6,13 +6,13 @@
 
         <!--top artists-->
         <div class="flex-col">
-            <h3 class="text-center text-white text-2xl font-bold">Top Artists</h3>
-            <TopArtists :similar_artists="similar_artists" />
+            <h3 class="text-center text-white text-2xl font-bold">Similar Artists</h3>
+            <SimilarArtists :similar_artists="similar_artists" />
         </div>
 
         <div class="flex-col justify-center items-center">
             <h3 class="text-center text-white text-2xl font-bold">Top Albums</h3>
-            <TopAlbums :top_albums="top_albums" />
+            <TopAlbums :top_albums="top_albums" :artist_name="artist_name"/>
 
         </div>
         <div class="">
@@ -32,19 +32,19 @@ import TopAlbums from '../../components/artist/TopAlbums.vue';
 
 import ArtistInfo from '../../components/artist/ArtistInfo.vue';
 
-import TopArtists from "../../components/artist/TopArtists.vue";
+import SimilarArtists from "../../components/artist/SimilarArtists.vue";
 
 import TopTracks from '../../components/artist/TopTracks.vue';
 
 interface ArtistViewProps {
-    query: string;
+    artist_name: string;
     top_tracks: ArtistTopTrackInterface[],
     top_albums: ArtistTopAlbumInterface[],
     similar_artists: SimilarArtistInterface[],
     info: ArtistInterface
 }
 
-const { info, top_tracks, top_albums, similar_artists } = defineProps<ArtistViewProps>()
+const { info, top_tracks, top_albums, similar_artists, artist_name } = defineProps<ArtistViewProps>()
 
 
 </script>

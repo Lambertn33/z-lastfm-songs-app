@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ArtistsController;
+use App\Http\Controllers\ArtistTopAlbumsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,18 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
     Route::post('/logout', 'logout')->name('auth.logout');
 });
 
-Route::prefix('artists')->controller(ArtistsController::class)->group(function () {
-    Route::get('/', 'index');
+
+Route::prefix('artists')->group(function () {
+    // search artist and get some few similar artists, top albums and recent tracks
+    Route::controller(ArtistsController::class)->group(function () {
+        Route::get('/', 'index')->name('artists.index');
+    });
+
+    Route::prefix('{artist}')->group(function () {
+
+        // get all searched artist top albums
+        Route::controller(ArtistTopAlbumsController::class)->prefix('top_albums')->group(function () {
+            Route::get('/', 'index')->name('artist.top_albums.index');
+        });
+    });
 });

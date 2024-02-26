@@ -15,7 +15,7 @@
 
 import { defineProps } from 'vue';
 
-import { FwbAvatar } from 'flowbite-vue';
+import { FwbAvatar, FwbButton } from 'flowbite-vue';
 
 import { SimilarArtistInterface } from '../../interfaces';
 
