@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Artists;
+
+use App\Http\Controllers\Controller;
 
 use App\Http\Services\ArtistsServices;
+
 use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 
 class ArtistsController extends Controller

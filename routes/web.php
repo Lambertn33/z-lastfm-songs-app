@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\ArtistsController;
-use App\Http\Controllers\ArtistSimilarArtistsController;
-use App\Http\Controllers\ArtistTopAlbumsController;
-use App\Http\Controllers\ArtistTopTracksController;
+
+use App\Http\Controllers\Artists\ArtistsController;
+use App\Http\Controllers\Artists\ArtistSimilarArtistsController;
+use App\Http\Controllers\Artists\ArtistTopAlbumsController;
+use App\Http\Controllers\Artists\ArtistTopTracksController;
+
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------

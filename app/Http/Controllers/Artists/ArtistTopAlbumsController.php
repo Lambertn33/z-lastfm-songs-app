@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Artists;
+
+use App\Http\Controllers\Controller;
 
 use App\Http\Services\ArtistsServices;
 
@@ -8,7 +10,7 @@ use Illuminate\Http\Request;
 
 use Inertia\Inertia;
 
-class ArtistSimilarArtistsController extends Controller
+class ArtistTopAlbumsController extends Controller
 {
     public function index(string $artist, Request $request)
     {
@@ -19,12 +21,12 @@ class ArtistSimilarArtistsController extends Controller
 
         $artistServices = app(ArtistsServices::class);
 
-        $artistAllSimilarArtists = $artistServices->getArtistSimilarArtists($artist, $page, $limit);
+        $artistAllToAlbums = $artistServices->getArtistTopAlbums($artist, $page, $limit);
 
-        return Inertia::render('Artists/Similar/AllSimilarArtists', [
-            'artist_all_similar_artists' => $artistAllSimilarArtists,
+        return Inertia::render('Artists/Albums/AllTopAlbums', [
+            'artist_all_top_albums' => $artistAllToAlbums,
             'artist' => $artist,
             'page' => $page
         ]);
-    } 
+    }
 }
