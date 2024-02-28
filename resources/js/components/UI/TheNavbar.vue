@@ -29,6 +29,9 @@
                 <fwb-avatar :img="user?.avatar" rounded class="cursor-pointer" @click="toggleRightMenu" />
                 <div class="absolute right-0" :class="!isRightMenuShown ? 'hidden' : ''">
                     <fwb-list-group>
+                        <fwb-list-group-item>
+                            <span class="font-bold">{{ user?.name }}</span>
+                        </fwb-list-group-item>
                         <fwb-list-group-item hover @click="$emit('logout')">
                             Logout
                         </fwb-list-group-item>

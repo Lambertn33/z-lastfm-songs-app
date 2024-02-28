@@ -8,8 +8,7 @@ use App\Http\Controllers\Artists\ArtistsController;
 use App\Http\Controllers\Artists\ArtistSimilarArtistsController;
 use App\Http\Controllers\Artists\ArtistTopAlbumsController;
 use App\Http\Controllers\Artists\ArtistTopTracksController;
-
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
