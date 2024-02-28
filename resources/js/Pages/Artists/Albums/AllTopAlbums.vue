@@ -7,13 +7,14 @@
             </Link>
         </div>
         <div class="flex items-center justify-center w-full gap-4">
-            <span class="text-white font-semibold text-3xl uppercase text-center">All top albums for {{ artist }}</span>
+            <span class="text-white font-semibold text-3xl uppercase text-center">All top albums for <span class="underline">{{ artist }}</span></span>
             <span class="text-white">{{ artist_all_top_albums['@attr'].total }} Albums</span>
         </div>
     </div>
     <div class="bg-[#262626] p-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div class="flex my-4 items-center gap-2" v-for="(album, index) in artist_all_top_albums.album" :key="index">
+                <span class="text-white font-bold">{{ index + 1 }}.</span>
                 <div class="bg-black flex justify-center items-center rounded-md h-12 w-12">
                     <fwb-avatar size="md" v-if="album.image && album.image.length > 0" :img="album.image[0]['#text']" />
                 </div>

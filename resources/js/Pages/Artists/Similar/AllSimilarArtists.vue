@@ -7,21 +7,21 @@
             </Link>
         </div>
         <div class="flex items-center justify-center w-full gap-4">
-            <span class="text-white font-semibold text-3xl uppercase text-center">All similar artists for {{ artist
-            }}</span>
+            <span class="text-white font-semibold text-3xl uppercase text-center">All similar artists for <span class="underline">{{ artist
+            }}</span></span>
         </div>
     </div>
     <div class="bg-[#262626] p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div class="flex my-4 items-center gap-2" v-for="(artist, index) in artist_all_similar_artists.artist" :key="index">
+        <div class="grid grid-cols-2 lg:grid-cols-3">
+            <div class="flex my-4 items-center gap-2" v-for="(artist, index) in artist_all_similar_artists.artist"
+                :key="index">
+                <span class="text-white font-bold">{{ index + 1 }}.</span>
                 <div class="bg-black flex justify-center items-center rounded-md h-12 w-12">
                     <fwb-avatar size="md" v-if="artist.image && artist.image.length > 0" :img="artist.image[0]['#text']" />
                 </div>
-                <div class="flex-col py-1 gap-3">
-                    <div class="text-white flex gap-1 items-center">
-                        <span class="text-md">{{ artist.name }}</span>
-                    </div>
-                </div>
+                <Link :href="route('artists.index', { 'artist': artist.name })"
+                    class="text-md text-white hover:text-gray-600">{{ artist.name }}
+                </Link>
             </div>
         </div>
     </div>
@@ -29,9 +29,9 @@
 
 <script setup lang="ts">
 
-import { defineProps, ref, watch } from 'vue';
+import { defineProps } from 'vue';
 
-import { useForm, Link } from "@inertiajs/vue3";
+import {  Link } from "@inertiajs/vue3";
 
 import { FwbAvatar } from 'flowbite-vue';
 
