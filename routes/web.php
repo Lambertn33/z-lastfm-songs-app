@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Albums\AlbumsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -35,7 +36,7 @@ Route::controller(AuthController::class)->prefix('auth')->group(function () {
     Route::post('/logout', 'logout')->name('auth.logout');
 });
 
-
+// Artists
 Route::prefix('artists')->group(function () {
     // search artist and get some few similar artists, top albums and recent tracks
     Route::controller(ArtistsController::class)->group(function () {
@@ -58,5 +59,14 @@ Route::prefix('artists')->group(function () {
         Route::controller(ArtistTopTracksController::class)->prefix('top_tracks')->group(function () {
             Route::get('/', 'index')->name('artist.top_tracks.index');
         });
+    });
+});
+
+//Albums
+
+Route::prefix('albums')->group(function () {
+    //search and album
+    Route::controller(AlbumsController::class)->group(function () {
+        Route::get('/', 'index')->name('albums.index');
     });
 });

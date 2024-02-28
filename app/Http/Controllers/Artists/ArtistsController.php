@@ -62,7 +62,6 @@ class ArtistsController extends Controller
         }
         // go search results
         else {
-
             return Inertia::render('Artists/ArtistSearch');
         }
     }
