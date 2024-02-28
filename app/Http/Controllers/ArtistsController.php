@@ -14,15 +14,17 @@ class ArtistsController extends Controller
 
             $artist = $request->query('artist');
 
+            $limit = 10;
+
             $artistServices = app(ArtistsServices::class);
 
             $artistBasicInfo = $artistServices->getArtistBasicInfo($artist);
 
-            $artistToAlbums = $artistServices->getArtistTopAlbums($artist);
+            $artistToAlbums = $artistServices->getArtistTopAlbums($artist, 1, $limit);
 
-            $artistSimilarArtists = $artistServices->geArtistSimilarArtists($artist);
+            $artistSimilarArtists = $artistServices->geArtistSimilarArtists($artist, 1, $limit);
 
-            $artistTopTracks = $artistServices->getArtistTopTracks($artist);
+            $artistTopTracks = $artistServices->getArtistTopTracks($artist, 1, $limit);
 
             return Inertia::render(
                 'Artists/ArtistView',

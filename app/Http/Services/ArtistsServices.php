@@ -17,7 +17,7 @@ class ArtistsServices
         $this->httpClient = Http::class;
     }
 
-    private function sendRequest(string $method, string $username, int $perPage = 1): \Illuminate\Http\Client\Response
+    private function sendRequest(string $method, string $username, int $perPage = 1, int $limit = 50): \Illuminate\Http\Client\Response
     {
         $queryParams = http_build_query([
             'artist' => $username,
@@ -25,7 +25,7 @@ class ArtistsServices
             'format' => 'json'
         ]);
 
-        $url = "{$this->url}?method={$method}&{$queryParams}&page={$perPage}";
+        $url = "{$this->url}?method={$method}&{$queryParams}&page={$perPage}&limit={$limit}";
 
         return $this->httpClient::post($url);
     }
@@ -39,27 +39,27 @@ class ArtistsServices
         return $data['artist'];
     }
 
-    public function getArtistTopAlbums(string $username, int $page = 1)
+    public function getArtistTopAlbums(string $username, int $page = 1, int $limit = 10)
     {
-        $response = $this->sendRequest('artist.gettopalbums', $username, $page);
+        $response = $this->sendRequest('artist.gettopalbums', $username, $page, $limit);
 
         $data = $response->json();
 
         return $data['topalbums'];
     }
 
-    public function geArtistSimilarArtists(string $username, int $page = 1)
+    public function geArtistSimilarArtists(string $username, int $page = 1, int $limit = 10)
     {
-        $response = $this->sendRequest('artist.getsimilar', $username, $page);
+        $response = $this->sendRequest('artist.getsimilar', $username, $page, $limit);
 
         $data = $response->json();
 
         return $data['similarartists'];
     }
 
-    public function getArtistTopTracks(string $username, int $page = 1)
+    public function getArtistTopTracks(string $username, int $page = 1, int $limit = 10)
     {
-      $response = $this->sendRequest('artist.gettoptracks', $username, $page);
+      $response = $this->sendRequest('artist.gettoptracks', $username, $page, $limit);
 
       $data = $response->json();
 

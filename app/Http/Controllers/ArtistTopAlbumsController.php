@@ -13,9 +13,11 @@ class ArtistTopAlbumsController extends Controller
 
         $page = $request->query('page') ?? 1;
 
+        $limit = 50;
+
         $artistServices = app(ArtistsServices::class);
 
-        $artistAllToAlbums = $artistServices->getArtistTopAlbums($artist, $page);
+        $artistAllToAlbums = $artistServices->getArtistTopAlbums($artist, $page, $limit);
 
         return Inertia::render('Artists/Albums/AllTopAlbums', [
             'artist_all_top_albums' => $artistAllToAlbums,
