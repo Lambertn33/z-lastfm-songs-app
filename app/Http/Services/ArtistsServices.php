@@ -30,6 +30,15 @@ class ArtistsServices
         return $this->httpClient::post($url);
     }
 
+    public function searchArtist(string $query, int $page = 1, int $limit = 30)
+    {
+        $response = $this->sendRequest('artist.search', $query, $page, $limit);
+
+        $data = $response->json();
+
+        return $data['results'];
+    }
+
     public function getArtistBasicInfo(string $username)
     {
         $response = $this->sendRequest('artist.getinfo', $username);

@@ -13,6 +13,33 @@ interface ArtistTagInterface {
     };
 }
 
+// searched artist interface
+
+export interface SearchedArtist {
+    name: string;
+    url: string;
+    image?: {
+        size: string;
+        "#text": string;
+    }[];
+    mbid: string;
+    listeners: number;
+}
+
+// artist search result response interface
+export interface ArtistSearchResultInterface {
+    artistmatches: {
+        artist: SearchedArtist[];
+    };
+    "opensearch:totalResults": string;
+    "opensearch:Query": {
+        startPage: string;
+    }
+    "@attr": {
+        for: string;
+    };
+}
+
 // artist interface
 export interface ArtistInterface {
     name: string;

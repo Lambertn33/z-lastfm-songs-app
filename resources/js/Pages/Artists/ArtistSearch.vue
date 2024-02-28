@@ -1,6 +1,6 @@
 <template>
     <form class="mt-20 mx-auto w-2/5" @submit.prevent="searchArtistHandler">
-        <fwb-input v-model="form.artist" placeholder="Search an artist......" size="lg">
+        <fwb-input v-model="form.search" placeholder="Search an artist......" size="lg">
             <template #suffix>
                 <fwb-button>Search</fwb-button>
             </template>
@@ -15,7 +15,7 @@ import { useForm } from '@inertiajs/vue3'
 import { FwbButton, FwbInput } from 'flowbite-vue'
 
 const form = useForm({
-    artist: ''
+    search: ''
 })
 
 const searchArtistHandler = () => form.get('/artists');
