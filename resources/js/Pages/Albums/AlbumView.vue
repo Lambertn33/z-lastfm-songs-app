@@ -3,9 +3,12 @@
 
         <!--Album header-->
         <div class="flex-col items-center justify-center">
+            <!--Album cover image-->
             <div class="flex justify-center">
                 <fwb-avatar size="xl" v-if="album.image && album.image.length > 0" :img="album.image[0]['#text']" rounded />
             </div>
+
+            <!--Album Info-->>
             <div class="flex mt-8 gap-4 justify-center">
                 <div class="flex items-center gap-2 text-blue-400">
                     <v-icon name="co-album" fill="#76a9fa" scale="1" />
@@ -27,7 +30,10 @@
                 <div class="flex items-center gap-1 text-white">
                     <v-icon name="md-playarrow" scale="1" />
                     <span class="font-semibold">{{ album.tracks.track.length }}</span>
-
+                </div>
+                <div class="flex items-center gap-1 text-white">
+                    <v-icon name="bi-calendar-date" scale="1" />
+                    <span class="font-semibold">{{ album.wiki.published }}</span>
                 </div>
             </div>
 
