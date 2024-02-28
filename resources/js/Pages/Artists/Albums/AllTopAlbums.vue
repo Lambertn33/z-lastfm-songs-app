@@ -1,15 +1,14 @@
 <template>
-    <div class=" bg-black  py-8 flex">
-        <div>
+    <div class=" bg-black  py-8 px-6 flex h-[300px]">
+        <!-- <div>
             <span class="text-white">Back</span>
-        </div>
-        <div class="flex-col items-center">
-            <div class="flex mt-8 gap-8">
-                <div class="flex items-center  gap-2">
-                    <span class="text-white font-semibold text-3xl uppercase">All top albums for {{ artist }}</span>
-                </div>
-                <span class="text-white"></span>
-            </div>
+        </div> -->
+        <Link :href="route('artists.index', { 'artist': artist })" class="text-white">
+        Backd
+        </Link>
+        <div class="flex items-center justify-center w-full gap-4">
+            <span class="text-white font-semibold text-3xl uppercase text-center">All top albums for {{ artist }}</span>
+            <span class="text-white">{{ artist_all_top_albums['@attr'].total }} Albums</span>
         </div>
     </div>
     <div class="bg-[#262626] p-8">
@@ -29,16 +28,22 @@
                 </div>
             </div>
         </div>
-        <div class="flex mt-8 justify-center">
-            <div class="flex gap-3">
-
+        <div class="flex-col mt-8">
+            <div class="flex gap-3 justify-center">
                 <button class="text-white bg-black py-2 px-4 rounded-md"
                     :class="pageCount < 2 ? 'cursor-not-allowed' : 'cursor-pointer'" :disabled="(pageCount < 2)"
-                    @click="prevPageHandler()">Prev</button>
+                    @click="prevPageHandler()">&lt&lt Prev</button>
 
                 <button class="text-white bg-black py-2 px-4 rounded-md cursor-pointer"
                     :disabled="pageParams === parseInt(artist_all_top_albums['@attr'].totalPages)"
-                    @click="nextPageHandler()">Next</button>
+                    @click="nextPageHandler()">Next >></button>
+            </div>
+            <div class="flex justify-center">
+                <span class="text-white mt-2 justify-center">
+                    Showing page {{ artist_all_top_albums['@attr'].page }} of {{ artist_all_top_albums['@attr'].totalPages
+                    }}
+                    pages
+                </span>
             </div>
         </div>
     </div>
@@ -48,7 +53,7 @@
 
 import { defineProps, ref, watch } from 'vue';
 
-import { useForm } from "@inertiajs/vue3";
+import { useForm, Link } from "@inertiajs/vue3";
 
 import { FwbAvatar } from 'flowbite-vue';
 
@@ -70,11 +75,13 @@ const pageParams = parseInt(searchParams.get('page')!) || 1;
 const pageCount = ref(pageParams);
 
 const nextPageForm = useForm({
-    page: pageCount.value + 1
+    page: pageCount.value + 1,
+    limit: 20
 });
 
 const prevPageForm = useForm({
-    page: pageCount.value > 1 ? pageCount.value - 1 : 1
+    page: pageCount.value > 1 ? pageCount.value - 1 : 1,
+    limit: 20
 });
 
 watch(pageCount, (newValue) => {
