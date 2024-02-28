@@ -38,9 +38,9 @@ import TopTracks from '../../components/artist/TopTracks.vue';
 
 interface ArtistViewProps {
     artist_name: string;
-    top_tracks: ArtistTopTrackInterface[],
-    top_albums: ArtistTopAlbumInterface[],
-    similar_artists: SimilarArtistInterface[],
+    top_tracks: ArtistTopTrackInterface,
+    top_albums: ArtistTopAlbumInterface,
+    similar_artists: SimilarArtistInterface,
     info: ArtistInterface
 }
 

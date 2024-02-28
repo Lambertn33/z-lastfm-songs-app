@@ -45,7 +45,7 @@ class ArtistsServices
 
         $data = $response->json();
 
-        return $data['topalbums']['album'];
+        return $data['topalbums'];
     }
 
     public function geArtistSimilarArtists(string $username, int $page = 1, int $limit = 10)
@@ -54,7 +54,7 @@ class ArtistsServices
 
         $data = $response->json();
 
-        return $data['similarartists']['artist'];
+        return $data['similarartists'];
     }
 
     public function getArtistTopTracks(string $username, int $page = 1, int $limit = 10)
@@ -63,6 +63,6 @@ class ArtistsServices
 
       $data = $response->json();
 
-      return $data['toptracks']['track'];
+      return $data['toptracks'];
     }
 }

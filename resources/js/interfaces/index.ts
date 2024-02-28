@@ -33,46 +33,69 @@ export interface ArtistInterface {
 
 // artist similar artists interface
 export interface SimilarArtistInterface {
-    name: string;
-    mbid: string;
-    url: string;
-    image?: {
-        size: string;
-        "#text": string;
+    artist: {
+        name: string;
+        mbid: string;
+        url: string;
+        image?: {
+            size: string;
+            "#text": string;
+        }[];
     }[];
+    "@attr": {
+        artist: string;
+    };
 }
 
 // artist top albums interface
 export interface ArtistTopAlbumInterface {
-    name: string;
-    playcount: number;
-    mbid: string;
-    url: string;
-    artist: {
+    album: {
         name: string;
-        url: string;
+        playcount: number;
         mbid: string;
-    };
-    image: {
-        "#text": string;
-        size: string;
+        url: string;
+        artist: {
+            name: string;
+            url: string;
+            mbid: string;
+        };
+        image: {
+            "#text": string;
+            size: string;
+        }[];
     }[];
+    "@attr": {
+        artist: string;
+        page: string;
+        total: string;
+        perPage: string;
+        totalPages: string;
+    };
 }
 
 // artist top tracks interface
 export interface ArtistTopTrackInterface {
-    name: string;
-    listeners: string;
-    playcount: string;
-    mbid: string;
-    url: string;
-    artist: {
+    track: {
         name: string;
-        url: string;
+        listeners: string;
+        playcount: string;
         mbid: string;
-    };
-    image: {
-        "#text": string;
-        size: string;
+        url: string;
+        artist: {
+            name: string;
+            url: string;
+            mbid: string;
+        };
+        image: {
+            "#text": string;
+            size: string;
+        }[];
     }[];
+    "@attr": {
+        artist: string;
+        page: string;
+        total: string;
+        perPage: string;
+        totalPages: string;
+    };
 }

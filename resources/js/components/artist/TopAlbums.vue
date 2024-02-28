@@ -1,5 +1,5 @@
 <template>
-    <div class="flex my-4 items-center gap-2" v-for="(album, index) in top_albums" :key="index">
+    <div class="flex my-4 items-center gap-2" v-for="(album, index) in top_albums.album" :key="index">
         <div class="bg-black flex justify-center items-center rounded-md h-12 w-12">
             <fwb-avatar size="md" v-if="album.image && album.image.length > 0" :img="album.image[0]['#text']" />
         </div>
@@ -33,7 +33,7 @@ import { FwbAvatar, FwbButton } from 'flowbite-vue';
 import { ArtistTopAlbumInterface } from '../../interfaces';
 
 interface TopAlbumsInterface {
-    top_albums: ArtistTopAlbumInterface[],
+    top_albums: ArtistTopAlbumInterface,
     artist_name: string
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex my-4 items-center gap-2" v-for="(track, index) in top_tracks" :key="index">
+    <div class="flex my-4 items-center gap-2" v-for="(track, index) in top_tracks.track" :key="index">
         <div class="bg-black flex justify-center items-center rounded-md h-12 w-12">
             <fwb-avatar size="md" v-if="track.image && track.image.length > 0" :img="track.image[0]['#text']" />
         </div>
@@ -26,7 +26,7 @@ import { FwbAvatar } from 'flowbite-vue';
 import { ArtistTopTrackInterface } from '../../interfaces';
 
 interface RecentTracksInterface {
-    top_tracks: ArtistTopTrackInterface[]
+    top_tracks: ArtistTopTrackInterface
 }
 
 const { top_tracks } = defineProps<RecentTracksInterface>()
