@@ -7,10 +7,6 @@
             <p class="text-white font-bold">
                 {{ album.name }}
             </p>
-            <div class="text-white flex gap-1">
-                <v-icon name="fa-user-alt" />
-                <span class="text-xs">{{ album.artist.name }}</span>
-            </div>
         </div>
     </div>
 

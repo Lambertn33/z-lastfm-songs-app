@@ -7,12 +7,6 @@
             <p class="text-white font-bold text-sm">
                 {{ track.name }}
             </p>
-            <div class="text-white flex gap-3 mt-2 items-center">
-                <div class="flex gap-1">
-                    <v-icon name="co-album" />
-                    <span class="text-xs">{{ track.artist.name }}</span>
-                </div>
-            </div>
         </div>
     </div>
 

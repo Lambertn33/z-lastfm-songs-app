@@ -16,7 +16,7 @@
 
         </div>
         <div class="">
-            <h3 class="text-center text-white text-2xl font-bold">Recent Tracks</h3>
+            <h3 class="text-center text-white text-2xl font-bold">Top Tracks</h3>
             <TopTracks :top_tracks="top_tracks"  :artist_name="artist_name"/>
         </div>
     </div>

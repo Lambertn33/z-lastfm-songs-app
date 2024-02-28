@@ -36,6 +36,7 @@ export interface ArtistSearchResultInterface {
 export interface ArtistInterface {
     name: string;
     url: string;
+    mbid: string;
     image?: {
         size: string;
         "#text": string;
