@@ -17,13 +17,18 @@ class AlbumsServices
         $this->httpClient = Http::class;
     }
 
-    private function sendRequest(string $method, string $album, int $perPage = 1, int $limit = 50): \Illuminate\Http\Client\Response
+    private function sendRequest(string $method, string $album, int $perPage = 1, int $limit = 50, bool $isViewing = false): \Illuminate\Http\Client\Response
     {
-        $queryParams = http_build_query([
-            'album' => $album,
-            'api_key' => $this->key,
-            'format' => 'json'
-        ]);
+        $queryParams = $isViewing ?
+            http_build_query([
+                'mbid' => $album,
+                'api_key' => $this->key,
+                'format' => 'json'
+            ]) : http_build_query([
+                'album' => $album,
+                'api_key' => $this->key,
+                'format' => 'json'
+            ]);
 
         $url = "{$this->url}?method={$method}&{$queryParams}&page={$perPage}&limit={$limit}";
 
@@ -37,5 +42,14 @@ class AlbumsServices
         $data = $response->json();
 
         return $data['results'];
+    }
+
+    public function viewAlbum(string $mbid)
+    {
+        $response = $this->sendRequest('album.getinfo', $mbid, 1, 1, true);
+
+        $data = $response->json();
+
+        return $data['album'];
     }
 }

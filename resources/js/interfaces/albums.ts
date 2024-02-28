@@ -3,6 +3,7 @@
 export interface SearchedAlbum {
     artist: string;
     url: string;
+    mbid: string;
     image?: {
         size: string;
         "#text": string;

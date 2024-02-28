@@ -12,10 +12,13 @@
                     <fwb-avatar size="md" v-if="album.image && album.image.length > 0" :img="album.image[0]['#text']" />
                 </div>
                 <div class="flex-col py-1 gap-3">
-                    <Link :href="route('albums.index', { album: album.name })"
+                    <Link v-if="album.mbid !== ''" :href="route('albums.index', { album: album.mbid })"
                         class="text-white font-bold hover:text-gray-600">
                     {{ album.name }}
                     </Link>
+                    <span v-else class="cursor-not-allowed text-white font-bold">
+                        {{ album.name }}
+                    </span>
                 </div>
             </div>
         </div>

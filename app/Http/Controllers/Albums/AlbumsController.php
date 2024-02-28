@@ -33,6 +33,16 @@ class AlbumsController extends Controller
                 'results' => $searchResults,
                 'query' => $query
             ]);
+
+         // if we already selected an album amoung the searched album
+        } else if ($request->query('album')) {
+            $query  = $request->query('album');
+
+            $album = $this->albumsServices->viewAlbum($query);
+
+            return Inertia::render('Albums/AlbumView', [
+                'album' => $album
+            ]);
         } else {
             return Inertia::render('Albums/AlbumSearch');
         }
