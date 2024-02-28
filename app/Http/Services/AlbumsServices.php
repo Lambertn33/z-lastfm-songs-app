@@ -20,7 +20,7 @@ class AlbumsServices
     private function sendRequest(string $method, string $album, int $perPage = 1, int $limit = 50): \Illuminate\Http\Client\Response
     {
         $queryParams = http_build_query([
-            'albm' => $album,
+            'album' => $album,
             'api_key' => $this->key,
             'format' => 'json'
         ]);

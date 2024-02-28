@@ -20,6 +20,21 @@ class AlbumsController extends Controller
 
     public function index(Request $request)
     {
-        return Inertia::render('Albums/AlbumSearch');
+        // if we are searching
+        if ($request->query('search')) {
+
+            $query = $request->query('search');
+
+            $page = $request->query('page') ?? 1;
+
+            $searchResults = $this->albumsServices->searchAlbum($query, $page, 30);
+
+            return Inertia::render('Albums/AlbumSearchResults', [
+                'results' => $searchResults,
+                'query' => $query
+            ]);
+        } else {
+            return Inertia::render('Albums/AlbumSearch');
+        }
     }
 }

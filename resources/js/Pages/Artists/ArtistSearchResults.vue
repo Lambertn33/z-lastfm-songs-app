@@ -48,7 +48,7 @@ interface ArtistSearchResultProps {
     search: string;
 }
 
-const { results, search } = defineProps<ArtistSearchResultProps>();
+const { results } = defineProps<ArtistSearchResultProps>();
 
 const currentUrl = new URL(window.location.href);
 
