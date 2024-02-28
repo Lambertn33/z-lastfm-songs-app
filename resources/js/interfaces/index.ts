@@ -13,16 +13,17 @@ import { UserInterface } from "./auth";
 
 //album interface
 
-import { AlbumSearchResultInterface, SearchedAlbum } from "./albums";
+import { AlbumSearchResultInterface, SearchedAlbum, AlbumDetails } from "./albums";
 
 export {
     ArtistInterface,
     ArtistSearchResultInterface,
     ArtistTopAlbumInterface,
     ArtistTopTrackInterface,
+    AlbumSearchResultInterface,
+    AlbumDetails,
+    SearchedAlbum,
     SearchedArtist,
     SimilarArtistInterface,
     UserInterface,
-    AlbumSearchResultInterface,
-    SearchedAlbum,
 };
