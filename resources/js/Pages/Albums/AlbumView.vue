@@ -1,6 +1,13 @@
 <template>
     <div class=" bg-black flex-col justify-center items-center py-8">
 
+        <div class="px-6 flex">
+            <Link :href="route('albums.index')" class="text-white hover:text-gray-600 flex items-center gap-3">
+            <v-icon name="fa-arrow-left" />
+                Search again
+            </Link>
+        </div>
+
         <!--Album header-->
         <div class="flex-col items-center justify-center">
             <!--Album cover image-->
@@ -8,7 +15,7 @@
                 <fwb-avatar size="xl" v-if="album.image && album.image.length > 0" :img="album.image[0]['#text']" rounded />
             </div>
 
-            <!--Album Info-->>
+            <!--Album Info-->
             <div class="flex mt-8 gap-4 justify-center">
                 <div class="flex items-center gap-2 text-blue-400">
                     <v-icon name="co-album" fill="#76a9fa" scale="1" />
