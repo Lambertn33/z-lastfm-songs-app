@@ -25,10 +25,15 @@
 
                 </div>
                 <div class="flex items-center gap-1 text-white">
-                    <v-icon name="md-playarrow"  scale="1" />
-                    <span class="font-semibold">{{ album.tracks.track.length}}</span>
+                    <v-icon name="md-playarrow" scale="1" />
+                    <span class="font-semibold">{{ album.tracks.track.length }}</span>
 
                 </div>
+            </div>
+
+            <!--Album Tags-->
+            <div class="flex justify-center mt-4">
+                <fwb-badge type="green" v-for="tag in album.tags.tag">{{ tag.name }}</fwb-badge>
             </div>
         </div>
     </div>
@@ -57,7 +62,7 @@ import { defineProps } from 'vue';
 
 import { Link } from '@inertiajs/vue3';
 
-import { FwbAvatar } from 'flowbite-vue';
+import { FwbAvatar, FwbBadge } from 'flowbite-vue';
 
 import { AlbumDetails } from "../../interfaces";
 
