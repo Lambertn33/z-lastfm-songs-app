@@ -13,22 +13,22 @@
             </div>
         </div>
     </div>
-    <fwb-button>
+    <button class="text-white bg-black py-2 px-4 rounded-md" v-show="top_albums.album.length > 0">
         <Link :href="route('artist.top_albums.index',
             { 'artist': artist_name }
         )">
         View More...
         </Link>
-    </fwb-button>
+    </button>
 </template>
 
 <script lang="ts" setup>
 
 import { defineProps } from 'vue';
 
-import { Link } from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3';
 
-import { FwbAvatar, FwbButton } from 'flowbite-vue';
+import { FwbAvatar } from 'flowbite-vue';
 
 import { ArtistTopAlbumInterface } from '../../interfaces';
 

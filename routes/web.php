@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ArtistsController;
+use App\Http\Controllers\ArtistSimilarArtistsController;
 use App\Http\Controllers\ArtistTopAlbumsController;
 
 /*
@@ -43,6 +44,11 @@ Route::prefix('artists')->group(function () {
         // get all searched artist top albums
         Route::controller(ArtistTopAlbumsController::class)->prefix('top_albums')->group(function () {
             Route::get('/', 'index')->name('artist.top_albums.index');
+        });
+
+        // get all searched artist similar artists
+        Route::controller(ArtistSimilarArtistsController::class)->prefix('similar_artists')->group(function () {
+            Route::get('/', 'index')->name('artist.similar.index');
         });
     });
 });

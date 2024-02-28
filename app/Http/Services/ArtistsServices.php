@@ -48,7 +48,7 @@ class ArtistsServices
         return $data['topalbums'];
     }
 
-    public function geArtistSimilarArtists(string $username, int $page = 1, int $limit = 10)
+    public function getArtistSimilarArtists(string $username, int $page = 1, int $limit = 10)
     {
         $response = $this->sendRequest('artist.getsimilar', $username, $page, $limit);
 

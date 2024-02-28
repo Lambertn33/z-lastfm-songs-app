@@ -9,20 +9,30 @@
             </p>
         </div>
     </div>
+    <button class="text-white bg-black py-2 px-4 rounded-md" v-show="similar_artists.artist.length > 0">
+        <Link :href="route('artist.similar.index',
+            { 'artist': artist_name }
+        )">
+        View More...
+        </Link>
+    </button>
 </template>
 
 <script lang="ts" setup>
 
 import { defineProps } from 'vue';
 
-import { FwbAvatar, FwbButton } from 'flowbite-vue';
+import { Link } from '@inertiajs/vue3'
+
+import { FwbAvatar } from 'flowbite-vue';
 
 import { SimilarArtistInterface } from '../../interfaces';
 
 interface TopArtistsInterface {
-    similar_artists: SimilarArtistInterface
+    similar_artists: SimilarArtistInterface,
+    artist_name: string
 }
 
-const { similar_artists } = defineProps<TopArtistsInterface>()
+const { similar_artists, artist_name } = defineProps<TopArtistsInterface>()
 
 </script>

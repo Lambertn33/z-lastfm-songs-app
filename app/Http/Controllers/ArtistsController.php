@@ -22,7 +22,7 @@ class ArtistsController extends Controller
 
             $artistToAlbums = $artistServices->getArtistTopAlbums($artist, 1, $limit);
 
-            $artistSimilarArtists = $artistServices->geArtistSimilarArtists($artist, 1, $limit);
+            $artistSimilarArtists = $artistServices->getArtistSimilarArtists($artist, 1, $limit);
 
             $artistTopTracks = $artistServices->getArtistTopTracks($artist, 1, $limit);
 

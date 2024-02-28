@@ -7,7 +7,7 @@
         <!--top artists-->
         <div class="flex-col">
             <h3 class="text-center text-white text-2xl font-bold">Similar Artists</h3>
-            <SimilarArtists :similar_artists="similar_artists" />
+            <SimilarArtists :similar_artists="similar_artists" :artist_name="artist_name" />
         </div>
 
         <div class="flex-col justify-center items-center">
