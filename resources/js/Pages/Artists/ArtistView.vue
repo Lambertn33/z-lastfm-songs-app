@@ -24,6 +24,7 @@
 
 <script setup lang="ts">
 
+
 import { defineProps } from 'vue';
 
 import { ArtistInterface, ArtistTopAlbumInterface, ArtistTopTrackInterface, SimilarArtistInterface} from '../../interfaces';

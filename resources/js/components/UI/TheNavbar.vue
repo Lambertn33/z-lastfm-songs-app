@@ -9,22 +9,22 @@
 
         <template #default="{ isShowMenu }">
             <fwb-navbar-collapse :is-show-menu="isShowMenu">
-                <fwb-navbar-link>
-                    <Link href="/" class="text-white">Home</Link>
-                </fwb-navbar-link>
-                <fwb-navbar-link>
-                    <Link href="/artists" class="text-white">Artists</Link>
-                </fwb-navbar-link>
-                <fwb-navbar-link>
-                    <Link href="/albums" class="text-white">Albums</Link>
-                </fwb-navbar-link>
+                <div class="border-b md:border-none p-3 md:p-0">
+                    <Link href="/" class="text-black lg:text-white">Home</Link>
+                </div>
+                <div class="border-b md:border-none p-3 md:p-0">
+                    <Link href="/artists" class="text-black lg:text-white">Artists</Link>
+                </div>
+                <div class="border-b md:border-none p-3 md:p-0">
+                    <Link href="/albums" class="text-black lg:text-white">Albums</Link>
+                </div>
             </fwb-navbar-collapse>
         </template>
 
         <template #right-side>
-            <fwb-button v-if="!isAuthenticated">
+            <button class="bg-black text-white py-2 px-4 rounded-md" v-if="!isAuthenticated">
                 <Link href="/auth">Authenticate</Link>
-            </fwb-button>
+            </button>
             <div v-else class="relative">
                 <fwb-avatar :img="user?.avatar" rounded class="cursor-pointer" @click="toggleRightMenu" />
                 <div class="absolute right-0" :class="!isRightMenuShown ? 'hidden' : ''">
@@ -50,12 +50,10 @@ import { UserInterface } from "../../interfaces";
 
 import {
     FwbAvatar,
-    FwbButton,
     FwbListGroup,
     FwbListGroupItem,
     FwbNavbar,
     FwbNavbarCollapse,
-    FwbNavbarLink,
     FwbNavbarLogo,
 } from 'flowbite-vue'
 
