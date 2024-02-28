@@ -7,7 +7,8 @@
             </Link>
         </div>
         <div class="flex items-center justify-center w-full gap-4">
-            <span class="text-white font-semibold text-3xl uppercase text-center">All top albums for <span class="underline">{{ artist }}</span></span>
+            <span class="text-white font-semibold text-3xl uppercase text-center">All top albums for <span
+                    class="underline">{{ artist }}</span></span>
             <span class="text-white">{{ artist_all_top_albums['@attr'].total }} Albums</span>
         </div>
     </div>
@@ -18,13 +19,13 @@
                 <div class="bg-black flex justify-center items-center rounded-md h-12 w-12">
                     <fwb-avatar size="md" v-if="album.image && album.image.length > 0" :img="album.image[0]['#text']" />
                 </div>
-                <div class="flex-col py-1 gap-3">
-                    <p class="text-white font-bold">
+                <div class="flex-col py-1 gap-3 text-white">
+                    <a :href="album.url" target="_blank" class="font-bold hover:text-gray-600">
                         {{ album.name }}
-                    </p>
-                    <div class="text-white flex gap-1">
-                        <v-icon name="fa-user-alt" />
-                        <span class="text-xs">{{ album.artist.name }}</span>
+                    </a>
+                    <div>
+                        <v-icon name="md-playarrow" />
+                        <span class="text-xs">{{ album.playcount }}</span>
                     </div>
                 </div>
             </div>
