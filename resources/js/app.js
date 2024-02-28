@@ -8,7 +8,11 @@ import { OhVueIcon, addIcons } from "oh-vue-icons";
 
 import { FaUserAlt, FaLocationArrow, CoAlbum, FaArrowLeft, CoHeadphones, MdPlayarrow  } from "oh-vue-icons/icons";
 
-import MainLayout from "./components/MainLayout.vue"
+import MainLayout from "./components/MainLayout.vue";
+
+import TheHeader from "./components/UI/TheHeader.vue";
+
+import TheNavigation from "./components/UI/ThePagination.vue";
 
 import '../css/app.css'
 
@@ -27,6 +31,8 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .component("v-icon", OhVueIcon)
+      .component("the-navigation", TheNavigation)
+      .component("the-header", TheHeader)
       .use(ZiggyVue)
       .mount(el)
   },

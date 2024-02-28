@@ -1,17 +1,10 @@
 <template>
-    <div class=" bg-black  py-8 px-6 flex h-[300px]">
-        <div>
-            <Link :href="route('artists.index', { 'artist': artist })" class="text-white flex items-center gap-3">
-            <v-icon name="fa-arrow-left" fill="#fff" />
-            Back
-            </Link>
-        </div>
-        <div class="flex items-center justify-center w-full gap-4">
-            <span class="text-white font-semibold text-3xl uppercase text-center">All similar artists for <span class="underline">{{ artist
-            }}</span></span>
-        </div>
-    </div>
+    <!--Header-->
+    <the-header :backLink="route('artists.index', { artist })" :title="`All similar artists for ${artist}`"
+        :total="`${artist_all_similar_artists.artist.length} artists`" />
+
     <div class="bg-[#262626] p-8">
+        <!--Similar artists list-->
         <div class="grid grid-cols-2 lg:grid-cols-3">
             <div class="flex my-4 items-center gap-2" v-for="(artist, index) in artist_all_similar_artists.artist"
                 :key="index">
@@ -31,7 +24,7 @@
 
 import { defineProps } from 'vue';
 
-import {  Link } from "@inertiajs/vue3";
+import { Link } from "@inertiajs/vue3";
 
 import { FwbAvatar } from 'flowbite-vue';
 

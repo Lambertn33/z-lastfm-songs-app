@@ -1,18 +1,12 @@
 <template>
-    <div class=" bg-black  py-8 px-6 flex h-[300px]">
-        <div>
-            <Link :href="route('artists.index', { 'artist': artist })" class="text-white flex items-center gap-3">
-            <v-icon name="fa-arrow-left" fill="#fff" />
-            Back
-            </Link>
-        </div>
-        <div class="flex items-center justify-center w-full gap-4">
-            <span class="text-white font-semibold text-3xl uppercase text-center">All top tracks for <span
-                    class="underline">{{ artist }}</span></span>
-            <span class="text-white">{{ artist_all_top_tracks['@attr'].total }} tracks</span>
-        </div>
-    </div>
+
+    <!--Header-->
+    <the-header :backLink="route('artists.index', { artist })" :title="`All top tracks for ${artist}`"
+        :total="`${artist_all_top_tracks['@attr'].total} tracks`" />
+
+
     <div class="bg-[#262626] p-8">
+        <!--Tracks List-->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div class="flex my-4 items-center gap-2" v-for="(track, index) in artist_all_top_tracks.track" :key="index">
                 <span class="text-white font-bold">{{ index + 1 }}.</span>
@@ -36,24 +30,12 @@
                 </div>
             </div>
         </div>
-        <div class="flex-col mt-8">
-            <div class="flex gap-3 justify-center">
-                <button class="text-white bg-black py-2 px-4 rounded-md"
-                    :class="pageCount < 2 ? 'cursor-not-allowed' : 'cursor-pointer'" :disabled="(pageCount < 2)"
-                    @click="prevPageHandler()">&lt&lt Prev</button>
 
-                <button class="text-white bg-black py-2 px-4 rounded-md cursor-pointer"
-                    :disabled="pageParams === parseInt(artist_all_top_tracks['@attr'].totalPages)"
-                    @click="nextPageHandler()">Next >></button>
-            </div>
-            <div class="flex justify-center">
-                <span class="text-white mt-2 justify-center">
-                    Showing page {{ artist_all_top_tracks['@attr'].page }} of {{ artist_all_top_tracks['@attr'].totalPages
-                    }}
-                    pages
-                </span>
-            </div>
-        </div>
+        <!--Navigation-->
+        <the-navigation :currentPage="artist_all_top_tracks['@attr'].page"
+            :totalPages="artist_all_top_tracks['@attr'].totalPages" :pageCount="pageCount" :isFirstPage="pageCount < 2"
+            :isLastPage="pageParams >= parseInt(artist_all_top_tracks['@attr'].totalPages)" @prev="prevPageHandler()"
+            @next="nextPageHandler()" />
     </div>
 </template>
 
@@ -61,7 +43,7 @@
 
 import { defineProps, ref, watch } from 'vue';
 
-import { useForm, Link } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
 
 import { FwbAvatar } from 'flowbite-vue';
 
