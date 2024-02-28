@@ -15,20 +15,30 @@
             </div>
         </div>
     </div>
+    <button class="text-white bg-black py-2 px-4 rounded-md" v-show="top_tracks.track.length > 0">
+        <Link :href="route('artist.top_tracks.index',
+            { 'artist': artist_name }
+        )">
+        View More...
+        </Link>
+    </button>
 </template>
 
 <script setup lang="ts">
 
 import { defineProps } from 'vue';
 
+import { Link } from '@inertiajs/vue3';
+
 import { FwbAvatar } from 'flowbite-vue';
 
 import { ArtistTopTrackInterface } from '../../interfaces';
 
 interface RecentTracksInterface {
-    top_tracks: ArtistTopTrackInterface
+    top_tracks: ArtistTopTrackInterface;
+    artist_name: string;
 }
 
-const { top_tracks } = defineProps<RecentTracksInterface>()
+const { top_tracks, artist_name } = defineProps<RecentTracksInterface>()
 
 </script>

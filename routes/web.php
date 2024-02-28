@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\ArtistsController;
 use App\Http\Controllers\ArtistSimilarArtistsController;
 use App\Http\Controllers\ArtistTopAlbumsController;
+use App\Http\Controllers\ArtistTopTracksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,11 @@ Route::prefix('artists')->group(function () {
         // get all searched artist similar artists
         Route::controller(ArtistSimilarArtistsController::class)->prefix('similar_artists')->group(function () {
             Route::get('/', 'index')->name('artist.similar.index');
+        });
+
+        //get all searched artist top tracks
+        Route::controller(ArtistTopTracksController::class)->prefix('top_tracks')->group(function () {
+            Route::get('/', 'index')->name('artist.top_tracks.index');
         });
     });
 });
