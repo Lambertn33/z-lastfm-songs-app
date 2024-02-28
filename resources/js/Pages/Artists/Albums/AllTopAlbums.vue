@@ -1,11 +1,11 @@
 <template>
     <div class=" bg-black  py-8 px-6 flex h-[300px]">
-        <!-- <div>
-            <span class="text-white">Back</span>
-        </div> -->
-        <Link :href="route('artists.index', { 'artist': artist })" class="text-white">
-        Backd
-        </Link>
+        <div>
+            <Link :href="route('artists.index', { 'artist': artist })" class="text-white flex items-center gap-3">
+            <v-icon name="fa-arrow-left" fill="#fff" />
+            Back
+            </Link>
+        </div>
         <div class="flex items-center justify-center w-full gap-4">
             <span class="text-white font-semibold text-3xl uppercase text-center">All top albums for {{ artist }}</span>
             <span class="text-white">{{ artist_all_top_albums['@attr'].total }} Albums</span>
@@ -76,12 +76,10 @@ const pageCount = ref(pageParams);
 
 const nextPageForm = useForm({
     page: pageCount.value + 1,
-    limit: 20
 });
 
 const prevPageForm = useForm({
     page: pageCount.value > 1 ? pageCount.value - 1 : 1,
-    limit: 20
 });
 
 watch(pageCount, (newValue) => {

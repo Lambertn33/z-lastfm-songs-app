@@ -6,13 +6,13 @@ import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
 
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 
-import { FaUserAlt, FaLocationArrow, CoAlbum  } from "oh-vue-icons/icons";
+import { FaUserAlt, FaLocationArrow, CoAlbum, FaArrowLeft  } from "oh-vue-icons/icons";
 
 import MainLayout from "./components/MainLayout.vue"
 
 import '../css/app.css'
 
-addIcons(FaUserAlt, FaLocationArrow, CoAlbum );
+addIcons(FaUserAlt, FaLocationArrow, CoAlbum, FaArrowLeft );
 
 createInertiaApp({
   resolve: name => {
