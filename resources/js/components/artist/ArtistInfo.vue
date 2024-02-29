@@ -62,16 +62,25 @@ const removeFromFavouriteForm = useForm({
 });
 
 const toggleFavourite = () => {
+    const endpoint = '/user/favourite_artists';
+    const onSuccessMessage = isArtistInFavorites.value ? 'Artist removed from favourites' : 'Artist added to favourites';
+    const onSuccessIcon = 'success';
+
+    const requestData = {
+        onSuccess: () => {
+            isArtistInFavorites.value = !isArtistInFavorites.value;
+            Swal.fire({
+                title: 'Success',
+                text: onSuccessMessage,
+                icon: onSuccessIcon,
+            });
+        },
+    };
+
     if (isArtistInFavorites.value) {
-        // Remove from favorites
-        removeFromFavouriteForm.delete('/user/favourite_artists', {
-            onSuccess: () => isArtistInFavorites.value = false
-        });
+        removeFromFavouriteForm.delete(endpoint, requestData);
     } else {
-        // Add to favorites
-        addToFavouriteForm.post('/user/favourite_artists', {
-            onSuccess: () => isArtistInFavorites.value = true
-        });
+        addToFavouriteForm.post(endpoint, requestData);
     }
 };
 

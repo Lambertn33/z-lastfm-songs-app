@@ -6,6 +6,10 @@ import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
 
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 
+import VueSweetalert2 from 'vue-sweetalert2';
+
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 import {
     FaUserAlt,
     FaLocationArrow,
@@ -49,12 +53,21 @@ createInertiaApp({
     },
 
     setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .component("v-icon", OhVueIcon)
-            .component("the-navigation", TheNavigation)
-            .component("the-header", TheHeader)
-            .use(ZiggyVue)
-            .mount(el);
-    },
+        const app = createApp({ render: () => h(App, props) });
+        
+        // Register components
+        app.component("v-icon", OhVueIcon);
+        app.component("the-navigation", TheNavigation);
+        app.component("the-header", TheHeader);
+        
+        // Use plugins
+        app.use(ZiggyVue);
+        app.use(VueSweetalert2);
+        
+        // Mount the app
+        app.mount(el);
+
+        // Set window.Swal
+        window.Swal = app.config.globalProperties.$swal;
+    }
 });

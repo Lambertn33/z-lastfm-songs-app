@@ -19,6 +19,7 @@
         "@inertiajs/vue3": "^1.0.14",
         "flowbite": "^2.3.0",
         "flowbite-vue": "^0.1.2",
-        "oh-vue-icons": "^1.0.0-rc3"
+        "oh-vue-icons": "^1.0.0-rc3",
+        "vue-sweetalert2": "^5.0.5"
     }
 }

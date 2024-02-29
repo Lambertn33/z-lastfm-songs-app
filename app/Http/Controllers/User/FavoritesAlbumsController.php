@@ -27,13 +27,13 @@ class FavoritesAlbumsController extends Controller
             'release_date' => $request->release_date
         ]);
 
-        return back()->with('success', 'Album added to favourites successfully');
+        return redirect()->back();
     }
 
     public function destroy(Request $request)
     {
         FavouriteAlbum::where('user_id', Auth::user()->id)->where('album_mbid', $request->album_mbid)->delete();
 
-        return back()->with('success', 'Album removed from favourites successfully');
+        return redirect()->back();
     }
 }

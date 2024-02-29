@@ -24,13 +24,13 @@ class FavoritesArtistsController extends Controller
             'artist_url' => $request->artist_url,
         ]);
 
-        return back()->with('success', 'Artist added to favourites successfully');
+        return redirect()->back();
     }
 
     public function destroy(Request $request)
     {
         FavouriteArtist::where('user_id', Auth::user()->id)->where('artist_mbid', $request->artist_mbid)->delete();
 
-        return back()->with('success', 'Artist removed from favourites successfully');
+        return redirect()->back();
     }
 }
