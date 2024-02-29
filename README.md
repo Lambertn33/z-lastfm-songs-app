@@ -31,3 +31,6 @@ DB_PASSWORD=your password
 5. php artisan serve
 
 the project is ready on http://localhost:8000/
+
+for testing run:
+- php artisan test
