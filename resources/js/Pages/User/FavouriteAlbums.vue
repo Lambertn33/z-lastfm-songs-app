@@ -2,7 +2,7 @@
     <div class="p-24 flex-col gap-3">
         <h2 class="text-white text-2xl font-bold text-center">My Favourite Albums</h2>
         <div class="mt-8">
-            <fwb-table>
+            <fwb-table v-if="favourite_albums.length">
                 <fwb-table-head>
                     <fwb-table-head-cell>Album name</fwb-table-head-cell>
                     <fwb-table-head-cell>Artist</fwb-table-head-cell>
@@ -20,11 +20,16 @@
                         <fwb-table-cell>{{ album.number_of_tracks }} tracks</fwb-table-cell>
                         <fwb-table-cell>{{ album.release_date }}</fwb-table-cell>
                         <fwb-table-cell>
-                           <button class="bg-black text-white py-2 px-4 rounded-md">Remove</button>
+                            <button class="bg-black text-white py-2 px-4 rounded-md">Remove</button>
                         </fwb-table-cell>
                     </fwb-table-row>
                 </fwb-table-body>
             </fwb-table>
+            <div v-else class="text-center">
+                <span class="text-white text-md font-light text-center">
+                    You don't have any favourite albums
+                </span>
+            </div>
         </div>
     </div>
 </template>

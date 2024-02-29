@@ -15,12 +15,12 @@ return new class extends Migration
         Schema::create('favourite_albums', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class, 'user_id')->constrained('users');
-            $table->string('album_mbid');
-            $table->string('album_name');
-            $table->string('album_url');
-            $table->string('artist_name');
-            $table->string('release_date');
-            $table->string('number_of_tracks');
+            $table->string('album_mbid')->nullable();
+            $table->string('album_name')->nullable();
+            $table->string('album_url')->nullable();
+            $table->string('artist_name')->nullable();
+            $table->string('release_date')->nullable();
+            $table->string('number_of_tracks')->nullable();
             $table->timestamps();
         });
     }
