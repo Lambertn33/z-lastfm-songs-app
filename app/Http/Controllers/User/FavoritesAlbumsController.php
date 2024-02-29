@@ -20,7 +20,11 @@ class FavoritesAlbumsController extends Controller
         FavouriteAlbum::create([
             'user_id' => Auth::user()->id,
             'album_mbid' => $request->album_mbid,
-            'album_name' => $request->album_name
+            'album_name' => $request->album_name,
+            'album_url' => $request->album_url,
+            'number_of_tracks' => $request->number_of_tracks,
+            'artist_name' => $request->artist_name,
+            'release_date' => $request->release_date
         ]);
 
         return back()->with('success', 'Album added to favourites successfully');

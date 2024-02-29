@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreignIdFor(User::class, 'user_id')->constrained('users');
             $table->string('album_mbid');
             $table->string('album_name');
+            $table->string('album_url');
+            $table->string('artist_name');
+            $table->string('release_date');
+            $table->string('number_of_tracks');
             $table->timestamps();
         });
     }

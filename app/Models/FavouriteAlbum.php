@@ -11,7 +11,7 @@ class FavouriteAlbum extends Model
     use HasFactory;
 
     protected $fillable = [
-        'album_mbid', 'album_name', 'user_id'
+        'album_mbid', 'album_name', 'artist_name', 'release_date', 'number_of_tracks','album_url', 'user_id'
     ];
 
     /**

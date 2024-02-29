@@ -76,7 +76,6 @@
 
 <script setup lang="ts">
 
-
 import { defineProps, ref } from 'vue';
 
 import { Link, useForm } from '@inertiajs/vue3';
@@ -106,7 +105,11 @@ if (user && user.favourite_albums.some((favAlbum) => favAlbum.album_mbid === alb
 
 const addToFavouriteForm = useForm({
     album_mbid: album_mbid,
-    album_name: album.name
+    album_name: album.name ?? '',
+    release_date: album.wiki.published ?? '',
+    number_of_tracks: album.tracks.track.length ?? '',
+    artist_name: album.artist ?? '',
+    album_url: album.url ?? ''
 });
 
 const removeFromFavouriteForm = useForm({
