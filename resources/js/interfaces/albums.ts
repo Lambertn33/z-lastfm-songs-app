@@ -52,6 +52,7 @@ interface AlbumTrack {
 
 export interface AlbumDetails {
     artist: string;
+    mbid: string;
     tags: {
         tag: AlbumTag[];
     };

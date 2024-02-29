@@ -9,6 +9,7 @@ use App\Http\Controllers\Artists\ArtistSimilarArtistsController;
 use App\Http\Controllers\Artists\ArtistTopAlbumsController;
 use App\Http\Controllers\Artists\ArtistTopTracksController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\User\FavoritesAlbumsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,5 +68,14 @@ Route::prefix('albums')->group(function () {
     //search and album
     Route::controller(AlbumsController::class)->group(function () {
         Route::get('/', 'index')->name('albums.index');
+    });
+});
+
+// user favourites
+Route::middleware('auth')->prefix('user')->group(function () {
+    Route::controller(FavoritesAlbumsController::class)->prefix('favourite_albums')->group(function () {
+        Route::get('/', 'index')->name('user.favourite_albums.index');
+        Route::post('/', 'store')->name('user.favourite_albums.store');
+        Route::delete('/', 'destroy')->name('user.favourite_albums.destroy');
     });
 });

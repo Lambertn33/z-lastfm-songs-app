@@ -9,7 +9,7 @@
 
 import { defineProps, computed } from "vue";
 
-import { router } from '@inertiajs/vue3'
+import { router, usePage } from '@inertiajs/vue3'
 
 import TheNavbar from "./UI/TheNavbar.vue";
 
@@ -23,6 +23,8 @@ interface UserInterface {
 interface UserProps {
     user: UserInterface | null;
 }
+
+const page = usePage();
 
 const props = defineProps<UserProps>();
 

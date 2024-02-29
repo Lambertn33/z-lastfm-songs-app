@@ -4,7 +4,7 @@
         <div class="px-6 flex">
             <Link :href="route('albums.index')" class="text-white hover:text-gray-600 flex items-center gap-3">
             <v-icon name="fa-arrow-left" />
-                Search again
+            Search again
             </Link>
         </div>
 
@@ -48,6 +48,12 @@
             <div class="flex justify-center mt-4">
                 <fwb-badge type="green" v-for="tag in album.tags.tag">{{ tag.name }}</fwb-badge>
             </div>
+
+            <!--Add/remove album to user favourite-->
+            <div class="flex justify-center mt-4" v-if="user">
+                <v-icon :name="isAlbumInFavorites ? 'md-favorite' : 'md-favoriteborder'" fill="#fff" scale="2"
+                    class="cursor-pointer" @click="toggleFavourite" />
+            </div>
         </div>
     </div>
     <div class="bg-[#262626] py-8 px-6">
@@ -71,18 +77,56 @@
 <script setup lang="ts">
 
 
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 
-import { Link } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 
 import { FwbAvatar, FwbBadge } from 'flowbite-vue';
 
-import { AlbumDetails } from "../../interfaces";
+import { AlbumDetails, UserInterface } from "../../interfaces";
 
 interface AlbumViewProps {
-    album: AlbumDetails
+    album: AlbumDetails,
+    user: UserInterface
 }
 
-const { album } = defineProps<AlbumViewProps>()
+const { album, user } = defineProps<AlbumViewProps>();
+
+const isAlbumInFavorites = ref(false);
+
+const currentUrl = new URL(window.location.href);
+
+const searchParams = new URLSearchParams(currentUrl.search);
+
+const album_mbid = searchParams.get("album");
+
+if (user && user.favourite_albums.some((favAlbum) => favAlbum.album_mbid === album_mbid)) {
+    isAlbumInFavorites.value = true;
+}
+
+const addToFavouriteForm = useForm({
+    album_mbid: album_mbid,
+    album_name: album.name
+});
+
+const removeFromFavouriteForm = useForm({
+    album_mbid: album_mbid,
+});
+
+const toggleFavourite = () => {
+    if (isAlbumInFavorites.value) {
+        // Remove from favorites
+        removeFromFavouriteForm.delete('/user/favourite_albums', {
+            onSuccess: () => isAlbumInFavorites.value = false
+        });
+    } else {
+        // Add to favorites
+        addToFavouriteForm.post('/user/favourite_albums', {
+            onSuccess: () => isAlbumInFavorites.value = true
+        });
+    }
+};
+
+
 
 </script>

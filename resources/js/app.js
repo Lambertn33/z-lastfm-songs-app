@@ -15,6 +15,8 @@ import {
     MdPlayarrow,
     BiCalendarDate,
     HiEmojiSad,
+    MdFavoriteborder,
+    MdFavorite
 } from "oh-vue-icons/icons";
 
 import MainLayout from "./components/MainLayout.vue";
@@ -33,7 +35,9 @@ addIcons(
     CoHeadphones,
     MdPlayarrow,
     BiCalendarDate,
-    HiEmojiSad
+    HiEmojiSad,
+    MdFavoriteborder,
+    MdFavorite
 );
 
 createInertiaApp({
