@@ -20,7 +20,8 @@
                         <fwb-table-cell>{{ album.number_of_tracks }} tracks</fwb-table-cell>
                         <fwb-table-cell>{{ album.release_date }}</fwb-table-cell>
                         <fwb-table-cell>
-                            <button class="bg-black text-white py-2 px-4 rounded-md">Remove</button>
+                            <button class="bg-black text-white py-2 px-4 rounded-md"
+                                @click="deleteFavourite(album.album_mbid)">Remove</button>
                         </fwb-table-cell>
                     </fwb-table-row>
                 </fwb-table-body>
@@ -42,7 +43,6 @@ import { useForm } from '@inertiajs/vue3';
 import { UserInterface } from "../../interfaces";
 
 import {
-    FwbA,
     FwbTable,
     FwbTableBody,
     FwbTableCell,
@@ -59,4 +59,14 @@ const { user } = defineProps<FavouriteAlbumsProps>();
 
 const { favourite_albums } = user;
 
+const removeFromFavouriteForm = useForm({
+    album_mbid: '',
+});
+
+const deleteFavourite = (albumId: string) => {
+    removeFromFavouriteForm.album_mbid = albumId;
+    removeFromFavouriteForm.delete('/user/favourite_albums', {
+        onSuccess: () => {}
+    });
+};
 </script>

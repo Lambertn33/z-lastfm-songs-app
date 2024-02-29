@@ -1,5 +1,5 @@
 <template>
-        <div class="p-24 flex-col gap-3">
+    <div class="p-24 flex-col gap-3">
         <h2 class="text-white text-2xl font-bold text-center">My Favourite Artists</h2>
         <div class="mt-8">
             <fwb-table v-if="favourite_artists.length">
@@ -11,9 +11,11 @@
                 </fwb-table-head>
                 <fwb-table-body>
                     <fwb-table-row v-for="artist in favourite_artists">
-                        <fwb-table-cell><a :href="artist.artist_url" target="_blank" class="text-blue-500">{{ artist.artist_name}}</a></fwb-table-cell>
+                        <fwb-table-cell><a :href="artist.artist_url" target="_blank" class="text-blue-500">{{
+                            artist.artist_name }}</a></fwb-table-cell>
                         <fwb-table-cell>
-                            <button class="bg-black text-white py-2 px-4 rounded-md">Remove</button>
+                            <button @click="deleteFavourite(artist.artist_mbid)"
+                                class="bg-black text-white py-2 px-4 rounded-md">Remove</button>
                         </fwb-table-cell>
                     </fwb-table-row>
                 </fwb-table-body>
@@ -51,5 +53,16 @@ interface FavouriteAlbumsProps {
 const { user } = defineProps<FavouriteAlbumsProps>();
 
 const { favourite_artists } = user;
+
+const removeFromFavouriteForm = useForm({
+    artist_mbid: '',
+});
+
+const deleteFavourite = (artist: string) => {
+    removeFromFavouriteForm.artist_mbid = artist;
+    removeFromFavouriteForm.delete('/user/favourite_artists', {
+        onSuccess: () => { }
+    });
+};
 
 </script>
