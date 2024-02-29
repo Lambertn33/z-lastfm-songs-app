@@ -15,8 +15,9 @@ return new class extends Migration
         Schema::create('favourite_artists', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class, 'user_id')->constrained('users');
-            $table->string('artist_mbid');
-            $table->string('artist_name');
+            $table->string('artist_mbid')->nullable();
+            $table->string('artist_name')->nullable();
+            $table->string('artist_url')->nullable();
             $table->timestamps();
         });
     }

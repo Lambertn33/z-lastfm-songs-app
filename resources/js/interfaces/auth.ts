@@ -18,6 +18,7 @@ export interface UserInterface {
         id: number;
         artist_mbid: string;
         artist_name: string;
+        artist_url: string;
         user_id: number;
     }[];
 

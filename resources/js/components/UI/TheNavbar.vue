@@ -35,6 +35,9 @@
                         <fwb-list-group-item>
                             <Link :href="route('user.favourite_albums.index')" @click="toggleRightMenu">My Favourite Albums</Link>
                         </fwb-list-group-item>
+                        <fwb-list-group-item>
+                            <Link :href="route('user.favourite_artists.index')" @click="toggleRightMenu">My Favourite Artists</Link>
+                        </fwb-list-group-item>
                         <fwb-list-group-item hover @click="$emit('logout')">
                             Logout
                         </fwb-list-group-item>

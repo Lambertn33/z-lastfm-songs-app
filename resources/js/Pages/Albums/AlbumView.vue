@@ -40,7 +40,7 @@
                 </div>
                 <div class="flex items-center gap-1 text-white">
                     <v-icon name="bi-calendar-date" scale="1" />
-                    <span class="font-semibold">{{ album.wiki.published }}</span>
+                    <span class="font-semibold">{{ album.wiki?.published ?? 'unknown' }}</span>
                 </div>
             </div>
 
@@ -106,7 +106,7 @@ if (user && user.favourite_albums.some((favAlbum) => favAlbum.album_mbid === alb
 const addToFavouriteForm = useForm({
     album_mbid: album_mbid,
     album_name: album.name ?? '',
-    release_date: album.wiki.published ?? '',
+    release_date: album.wiki?.published ?? 'unknown',
     number_of_tracks: album.tracks.track.length ?? '',
     artist_name: album.artist ?? '',
     album_url: album.url ?? ''

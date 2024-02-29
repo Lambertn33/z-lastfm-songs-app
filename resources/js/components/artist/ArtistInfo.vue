@@ -1,7 +1,8 @@
 <template>
     <div class=" bg-black  py-8">
         <div class="px-6 flex">
-            <Link :href="route('artists.index')" class="text-white hover:text-gray-600 flex items-center gap-3 cursor-pointer">
+            <Link :href="route('artists.index')"
+                class="text-white hover:text-gray-600 flex items-center gap-3 cursor-pointer">
             <v-icon name="fa-arrow-left" />
             Search again
             </Link>
@@ -18,6 +19,10 @@
                         </a>
                     </div>
                 </div>
+                <div class="flex justify-center mt-4" v-if="user">
+                    <v-icon :name="isArtistInFavorites ? 'md-favorite' : 'md-favoriteborder'" fill="#fff" scale="2"
+                        class="cursor-pointer" @click="toggleFavourite" />
+                </div>
             </div>
         </div>
     </div>
@@ -25,16 +30,49 @@
 
 <script setup lang="ts">
 
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 
 import { FwbAvatar } from 'flowbite-vue';
 
-import { ArtistInterface } from '../../interfaces';
-import { Link } from '@inertiajs/vue3';
+import { ArtistInterface, UserInterface } from '../../interfaces';
+
+import { Link, useForm } from '@inertiajs/vue3';
 
 interface ArtistInfoInterface {
-    artist: ArtistInterface
+    artist: ArtistInterface,
+    user: UserInterface
 }
 
-const { artist } = defineProps<ArtistInfoInterface>()
+const isArtistInFavorites = ref(false);
+
+const { artist, user } = defineProps<ArtistInfoInterface>();
+
+if (user && user.favourite_artists.some((favArtist) => favArtist.artist_mbid === artist.mbid)) {
+    isArtistInFavorites.value = true;
+}
+
+const addToFavouriteForm = useForm({
+    artist_mbid: artist.mbid,
+    artist_name: artist.name ?? '',
+    artist_url: artist.url ?? ''
+});
+
+const removeFromFavouriteForm = useForm({
+    artist_mbid: artist.mbid,
+});
+
+const toggleFavourite = () => {
+    if (isArtistInFavorites.value) {
+        // Remove from favorites
+        removeFromFavouriteForm.delete('/user/favourite_artists', {
+            onSuccess: () => isArtistInFavorites.value = false
+        });
+    } else {
+        // Add to favorites
+        addToFavouriteForm.post('/user/favourite_artists', {
+            onSuccess: () => isArtistInFavorites.value = true
+        });
+    }
+};
+
 </script>

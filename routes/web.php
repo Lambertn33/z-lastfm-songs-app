@@ -10,6 +10,7 @@ use App\Http\Controllers\Artists\ArtistTopAlbumsController;
 use App\Http\Controllers\Artists\ArtistTopTracksController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\FavoritesAlbumsController;
+use App\Http\Controllers\User\FavoritesArtistsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,9 +74,18 @@ Route::prefix('albums')->group(function () {
 
 // user favourites
 Route::middleware('auth')->prefix('user')->group(function () {
+    
+    // favourite albums
     Route::controller(FavoritesAlbumsController::class)->prefix('favourite_albums')->group(function () {
         Route::get('/', 'index')->name('user.favourite_albums.index');
         Route::post('/', 'store')->name('user.favourite_albums.store');
         Route::delete('/', 'destroy')->name('user.favourite_albums.destroy');
+    });
+
+    // favourite artists
+    Route::controller(FavoritesArtistsController::class)->prefix('favourite_artists')->group(function () {
+        Route::get('/', 'index')->name('user.favourite_artists.index');
+        Route::post('/', 'store')->name('user.favourite_artists.store');
+        Route::delete('/', 'destroy')->name('user.favourite_artists.destroy');
     });
 });

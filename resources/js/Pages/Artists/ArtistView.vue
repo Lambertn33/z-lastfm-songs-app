@@ -1,6 +1,6 @@
 <template>
     <!--Artist Info-->
-    <ArtistInfo :artist="info" />
+    <ArtistInfo :artist="info" :user="user" />
 
     <div class="grid grid-cols-1  md:grid-cols-3 bg-[#262626] py-8 px-6">
 
@@ -12,22 +12,21 @@
 
         <div class="flex-col justify-center items-center">
             <h3 class="text-center text-white text-2xl font-bold">Top Albums</h3>
-            <TopAlbums :top_albums="top_albums" :artist_name="artist_name"/>
+            <TopAlbums :top_albums="top_albums" :artist_name="artist_name" />
 
         </div>
         <div class="">
             <h3 class="text-center text-white text-2xl font-bold">Top Tracks</h3>
-            <TopTracks :top_tracks="top_tracks"  :artist_name="artist_name"/>
+            <TopTracks :top_tracks="top_tracks" :artist_name="artist_name" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 
-
 import { defineProps } from 'vue';
 
-import { ArtistInterface, ArtistTopAlbumInterface, ArtistTopTrackInterface, SimilarArtistInterface} from '../../interfaces';
+import { ArtistInterface, ArtistTopAlbumInterface, ArtistTopTrackInterface, SimilarArtistInterface, UserInterface } from '../../interfaces';
 
 import TopAlbums from '../../components/artist/TopAlbums.vue';
 
@@ -42,7 +41,8 @@ interface ArtistViewProps {
     top_tracks: ArtistTopTrackInterface,
     top_albums: ArtistTopAlbumInterface,
     similar_artists: SimilarArtistInterface,
-    info: ArtistInterface
+    info: ArtistInterface,
+    user: UserInterface
 }
 
 const { info, top_tracks, top_albums, similar_artists, artist_name } = defineProps<ArtistViewProps>()

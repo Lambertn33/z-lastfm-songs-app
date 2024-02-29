@@ -11,7 +11,7 @@ class FavouriteArtist extends Model
     use HasFactory;
 
     protected $fillable = [
-        'artist_mbid', 'artist_name', 'user_id'
+        'artist_mbid', 'artist_name', 'artist_url', 'user_id'
     ];
 
     /**
