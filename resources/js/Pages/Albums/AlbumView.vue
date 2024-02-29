@@ -117,8 +117,8 @@ const removeFromFavouriteForm = useForm({
 });
 
 const toggleFavourite = () => {
-    const endpoint = '/user/favourite_artists';
-    const onSuccessMessage = isAlbumInFavorites.value ? 'Artist removed from favourites' : 'Artist added to favourites';
+    const endpoint = '/user/favourite_albums';
+    const onSuccessMessage = isAlbumInFavorites.value ? 'Album removed from favourites' : 'Album added to favourites';
     const onSuccessIcon = 'success';
 
     const requestData = {

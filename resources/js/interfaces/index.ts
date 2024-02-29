@@ -9,7 +9,7 @@ import {
 } from "./artists";
 
 //user/auth interface
-import { UserInterface } from "./auth";
+import { UserInterface, UserFavouriteAlbumInterface, UserFavouriteArtistInterface } from "./auth";
 
 //album interface
 
@@ -26,4 +26,6 @@ export {
     SearchedArtist,
     SimilarArtistInterface,
     UserInterface,
+    UserFavouriteAlbumInterface,
+    UserFavouriteArtistInterface
 };

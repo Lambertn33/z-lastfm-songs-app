@@ -2,7 +2,7 @@
     <div class="p-24 flex-col gap-3">
         <h2 class="text-white text-2xl font-bold text-center">My Favourite Artists</h2>
         <div class="mt-8">
-            <fwb-table v-if="favourite_artists.length">
+            <fwb-table v-if="artists.length">
                 <fwb-table-head>
                     <fwb-table-head-cell>Artist name</fwb-table-head-cell>
                     <fwb-table-head-cell>
@@ -10,7 +10,7 @@
                     </fwb-table-head-cell>
                 </fwb-table-head>
                 <fwb-table-body>
-                    <fwb-table-row v-for="artist in favourite_artists">
+                    <fwb-table-row v-for="artist in artists">
                         <fwb-table-cell><a :href="artist.artist_url" target="_blank" class="text-blue-500">{{
                             artist.artist_name }}</a></fwb-table-cell>
                         <fwb-table-cell>
@@ -30,14 +30,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 
 import { useForm } from '@inertiajs/vue3';
 
-import { UserInterface } from "../../interfaces";
+import { UserFavouriteArtistInterface, UserInterface } from "../../interfaces";
 
 import {
-    FwbA,
     FwbTable,
     FwbTableBody,
     FwbTableCell,
@@ -54,14 +53,23 @@ const { user } = defineProps<FavouriteAlbumsProps>();
 
 const { favourite_artists } = user;
 
+const artists = ref<UserFavouriteArtistInterface[]>(favourite_artists);
+
 const removeFromFavouriteForm = useForm({
     artist_mbid: '',
 });
 
-const deleteFavourite = (artist: string) => {
-    removeFromFavouriteForm.artist_mbid = artist;
+const deleteFavourite = (artistId: string) => {
+    removeFromFavouriteForm.artist_mbid = artistId;
     removeFromFavouriteForm.delete('/user/favourite_artists', {
-        onSuccess: () => { }
+        onSuccess: () => {
+            artists.value = artists.value.filter(artist => artist.artist_mbid !== artistId);
+            Swal.fire({
+                title: 'Success',
+                text: "Artist removed from favourites successfully",
+                icon: "success",
+            });
+        }
     });
 };
 
