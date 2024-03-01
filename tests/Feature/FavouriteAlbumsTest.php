@@ -31,9 +31,7 @@ class FavouriteAlbumsTest extends TestCase
 
         // removing a favourite album
         $response = $this->actingAs($user)
-            ->delete('/user/favourite_albums', [
-                'album_mbid' => $randomAlbumMbid
-            ]);
+            ->delete("/user/favourite_albums/$randomAlbumMbid");
 
         $response->assertStatus(302);
     }

@@ -30,9 +30,7 @@ class FavouriteArtistsTest extends TestCase
 
         // removing a favourite artist
         $response = $this->actingAs($user)
-            ->delete('/user/favourite_artists', [
-                'artist_mbid' => $randomArtistMbid
-            ]);
+            ->delete("/user/favourite_artists/$randomArtistMbid");
 
         $response->assertStatus(302);
     }
