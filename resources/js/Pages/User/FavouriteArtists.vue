@@ -61,9 +61,12 @@ const removeFromFavouriteForm = useForm({
 
 const deleteFavourite = (artistId: string) => {
     removeFromFavouriteForm.artist_mbid = artistId;
-    removeFromFavouriteForm.delete('/user/favourite_artists', {
+
+    removeFromFavouriteForm.delete(`/user/favourite_artists/${artistId}`, {
+
         onSuccess: () => {
             artists.value = artists.value.filter(artist => artist.artist_mbid !== artistId);
+            
             Swal.fire({
                 title: 'Success',
                 text: "Artist removed from favourites successfully",

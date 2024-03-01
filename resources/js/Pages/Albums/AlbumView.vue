@@ -113,11 +113,11 @@ const addToFavouriteForm = useForm({
 });
 
 const removeFromFavouriteForm = useForm({
-    album_mbid: album_mbid,
+    album_mbid,
 });
 
 const toggleFavourite = () => {
-    const endpoint = '/user/favourite_albums';
+    const endpoint = isAlbumInFavorites.value ? `/user/favourite_albums/${album_mbid}` : '/user/favourite_albums/';
     const onSuccessMessage = isAlbumInFavorites.value ? 'Album removed from favourites' : 'Album added to favourites';
     const onSuccessIcon = 'success';
 
@@ -133,7 +133,7 @@ const toggleFavourite = () => {
     };
 
     if (isAlbumInFavorites.value) {
-        removeFromFavouriteForm.delete(endpoint, requestData);
+        removeFromFavouriteForm.delete(endpoint);
     } else {
         addToFavouriteForm.post(endpoint, requestData);
     }

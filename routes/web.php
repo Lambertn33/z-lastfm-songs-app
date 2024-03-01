@@ -74,18 +74,20 @@ Route::prefix('albums')->group(function () {
 
 // user favourites
 Route::middleware('auth')->prefix('user')->group(function () {
-    
+
     // favourite albums
-    Route::controller(FavoritesAlbumsController::class)->prefix('favourite_albums')->group(function () {
-        Route::get('/', 'index')->name('user.favourite_albums.index');
-        Route::post('/', 'store')->name('user.favourite_albums.store');
-        Route::delete('/', 'destroy')->name('user.favourite_albums.destroy');
-    });
+    Route::resource('favourite_albums', FavoritesAlbumsController::class)->only(['index', 'store', 'destroy'])
+        ->names([
+            'index' => 'user.favourite_albums.index',
+            'store' => 'user.favourite_albums.store',
+            'destroy' => 'user.favourite_albums.destroy',
+        ]);
 
     // favourite artists
-    Route::controller(FavoritesArtistsController::class)->prefix('favourite_artists')->group(function () {
-        Route::get('/', 'index')->name('user.favourite_artists.index');
-        Route::post('/', 'store')->name('user.favourite_artists.store');
-        Route::delete('/', 'destroy')->name('user.favourite_artists.destroy');
-    });
+    Route::resource('favourite_artists', FavoritesArtistsController::class)->only(['index', 'store', 'destroy'])
+        ->names([
+            'index' => 'user.favourite_artists.index',
+            'store' => 'user.favourite_artists.store',
+            'destroy' => 'user.favourite_artists.destroy',
+        ]);
 });
