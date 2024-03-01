@@ -78,7 +78,7 @@ const toggleFavourite = () => {
     };
 
     if (isArtistInFavorites.value) {
-        removeFromFavouriteForm.delete(endpoint);
+        removeFromFavouriteForm.delete(endpoint, requestData);
     } else {
         addToFavouriteForm.post(endpoint, requestData);
     }

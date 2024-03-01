@@ -133,7 +133,7 @@ const toggleFavourite = () => {
     };
 
     if (isAlbumInFavorites.value) {
-        removeFromFavouriteForm.delete(endpoint);
+        removeFromFavouriteForm.delete(endpoint, requestData);
     } else {
         addToFavouriteForm.post(endpoint, requestData);
     }
