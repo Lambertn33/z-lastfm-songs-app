@@ -62,7 +62,7 @@ const removeFromFavouriteForm = useForm({
 });
 
 const toggleFavourite = () => {
-    const endpoint = '/user/favourite_artists';
+    const endpoint = isArtistInFavorites.value ? `/user/favourite_artists/${artist.mbid}` : '/user/favourite_artists';
     const onSuccessMessage = isArtistInFavorites.value ? 'Artist removed from favourites' : 'Artist added to favourites';
     const onSuccessIcon = 'success';
 

@@ -45,7 +45,6 @@ import { ArtistSearchResultInterface } from "../../interfaces";
 
 interface ArtistSearchResultProps {
     results: ArtistSearchResultInterface;
-    search: string;
 }
 
 const { results } = defineProps<ArtistSearchResultProps>();

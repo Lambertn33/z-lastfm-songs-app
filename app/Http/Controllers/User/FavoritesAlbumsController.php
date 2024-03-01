@@ -30,9 +30,9 @@ class FavoritesAlbumsController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(Request $request)
+    public function destroy(string $mbid)
     {
-        FavouriteAlbum::where('user_id', Auth::user()->id)->where('album_mbid', $request->album_mbid)->delete();
+        FavouriteAlbum::where('user_id', Auth::user()->id)->where('album_mbid', $mbid)->delete();
 
         return redirect()->back();
     }

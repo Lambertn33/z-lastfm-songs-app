@@ -22,7 +22,7 @@ import { Link } from "@inertiajs/vue3";
 const { backLink, title, total } = defineProps<{
     backLink: string;
     title: string;
-    total: number;
+    total: string;
 }>();
 
 </script>
