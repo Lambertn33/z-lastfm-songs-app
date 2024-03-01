@@ -25,8 +25,8 @@
         </div>
 
         <!--Navigation-->
-        <the-navigation :currentPage="artist_all_top_albums['@attr'].page"
-            :totalPages="artist_all_top_albums['@attr'].totalPages" :pageCount="pageCount" :isFirstPage="pageCount < 2"
+        <the-navigation :currentPage="parseInt(artist_all_top_albums['@attr'].page)"
+            :totalPages="parseInt(artist_all_top_albums['@attr'].totalPages)" :pageCount="pageCount" :isFirstPage="pageCount < 2"
             :isLastPage="pageParams >= parseInt(artist_all_top_albums['@attr'].totalPages)" @prev="prevPageHandler()"
             @next="nextPageHandler()" />
     </div>

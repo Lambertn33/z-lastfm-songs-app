@@ -45,9 +45,3 @@
         </div>
     </section>
 </template>
-
-<script lang="ts" setup>
-const props = defineProps<{ message: string }>()
-
-console.log(props.message);
-</script>

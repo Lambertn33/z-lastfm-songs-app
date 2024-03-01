@@ -24,10 +24,7 @@ use App\Http\Controllers\User\FavoritesArtistsController;
 */
 
 Route::get('/', function () {
-    $message = "Hi from vuex";
-    return Inertia::render('Index', [
-        'message' => $message
-    ]);
+    return Inertia::render('Index');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function () {

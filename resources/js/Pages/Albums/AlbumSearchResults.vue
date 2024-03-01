@@ -43,7 +43,6 @@ import { AlbumSearchResultInterface } from "../../interfaces";
 
 interface AlbumSearchResultProps {
     results: AlbumSearchResultInterface;
-    search: string;
 }
 
 const { results } = defineProps<AlbumSearchResultProps>();
