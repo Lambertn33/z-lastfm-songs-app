@@ -1,0 +1,174 @@
+{
+    "similarartists": {
+        "artist": [
+            {
+                "name": "Sonny & Cher",
+                "mbid": "c43d2302-02db-487b-b62d-8cb3c57f94c6",
+                "match": "1",
+                "url": "https://www.last.fm/music/Sonny+&+Cher",
+                "image": [
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "small"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "medium"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "large"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "extralarge"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "mega"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": ""
+                    }
+                ],
+                "streamable": "0"
+            },
+            {
+                "name": "Kylie Minogue",
+                "mbid": "2fddb92d-24b2-46a5-bf28-3aed46f4684c",
+                "match": "0.985017",
+                "url": "https://www.last.fm/music/Kylie+Minogue",
+                "image": [
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "small"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "medium"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "large"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "extralarge"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "mega"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": ""
+                    }
+                ],
+                "streamable": "0"
+            },
+            {
+                "name": "Madonna",
+                "mbid": "79239441-bfd5-4981-a70c-55c3f15c1287",
+                "match": "0.957738",
+                "url": "https://www.last.fm/music/Madonna",
+                "image": [
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "small"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "medium"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "large"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "extralarge"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "mega"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": ""
+                    }
+                ],
+                "streamable": "0"
+            },
+            {
+                "name": "Tina Turner",
+                "mbid": "9072df14-b61e-42e2-b4f4-6bbb7fdb5586",
+                "match": "0.880160",
+                "url": "https://www.last.fm/music/Tina+Turner",
+                "image": [
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "small"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "medium"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "large"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "extralarge"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "mega"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": ""
+                    }
+                ],
+                "streamable": "0"
+            },
+            {
+                "name": "Céline Dion",
+                "mbid": "847e8a0c-cc20-4213-9e16-975515c2a926",
+                "match": "0.822384",
+                "url": "https://www.last.fm/music/C%C3%A9line+Dion",
+                "image": [
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "small"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "medium"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "large"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "extralarge"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": "mega"
+                    },
+                    {
+                        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+                        "size": ""
+                    }
+                ],
+                "streamable": "0"
+            }
+        ],
+        "@attr": {
+            "artist": "Cher"
+        }
+    }
+}
