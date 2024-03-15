@@ -24,9 +24,7 @@ class ArtistsTest extends TestCase
 
         config(['lastfm.api_key' => 'test']);
     }
-    /**
-     * A basic feature test example.
-     */
+    
     public function test_user_can_search_artists_by_name(): void
     {
         $body = file_get_contents(base_path('tests/fixtures/artists/artist_search.json'));
