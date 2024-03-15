@@ -32,5 +32,9 @@ DB_PASSWORD=your password
 
 the project is ready on http://localhost:8000/
 
+for caching some variables for avoiding calling env variables every time when services are called tha resuts in slowing down the app, run:
+- php artisan config:cache  => to cache variables
+- php artisan config:clear => to clear cached variables
+
 for testing run:
 - php artisan test

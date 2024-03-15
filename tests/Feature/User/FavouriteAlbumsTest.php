@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\User;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -19,6 +19,7 @@ class FavouriteAlbumsTest extends TestCase
         // adding a favourite album
         $response = $this->actingAs($user)
             ->post('/user/favourite_albums', [
+                'user_id' => $user->id,
                 'album_mbid' => $randomAlbumMbid,
                 'album_name' => 'Test Album',
                 'album_url' => 'http://randomAlbumUrl',

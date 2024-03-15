@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\User;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -11,7 +11,6 @@ use Tests\TestCase;
 
 class FavouriteArtistsTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_user_can_add_and_remove_favourite_artist()
@@ -22,8 +21,10 @@ class FavouriteArtistsTest extends TestCase
         // adding a favourite artist
         $response = $this->actingAs($user)
             ->post('/user/favourite_artists', [
+                'user_id' => $user->id,
                 'artist_mbid' => $randomArtistMbid,
                 'artist_name' => 'Test Artist',
+                'artist_url' => 'randomUrl',
             ]);
 
         $response->assertStatus(302);

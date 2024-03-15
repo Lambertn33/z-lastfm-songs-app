@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Config;
 
 class ArtistsServices
 {
@@ -12,8 +13,8 @@ class ArtistsServices
 
     public function __construct()
     {
-        $this->key = env('LASTFM_API_KEY');
-        $this->url = env('LASTFM_API_URL');
+        $this->key = Config::get('lastfm.api_key');
+        $this->url = Config::get('lastfm.api_url');
         $this->httpClient = Http::class;
     }
 
