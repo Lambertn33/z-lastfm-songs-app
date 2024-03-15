@@ -17,6 +17,8 @@ class FavoritesAlbumsController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('store', FavouriteAlbum::class);
+
         FavouriteAlbum::create([
             'user_id' => Auth::user()->id,
             'album_mbid' => $request->album_mbid,
@@ -32,7 +34,13 @@ class FavoritesAlbumsController extends Controller
 
     public function destroy(string $mbid)
     {
-        FavouriteAlbum::where('user_id', Auth::user()->id)->where('album_mbid', $mbid)->delete();
+        $favouriteAlbum = FavouriteAlbum::where('user_id', Auth::user()->id)
+            ->where('album_mbid', $mbid)
+            ->firstOrFail();
+
+        $this->authorize('destroy', [$favouriteAlbum, $mbid]);
+
+        $favouriteAlbum->delete();
 
         return redirect()->back();
     }
