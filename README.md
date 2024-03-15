@@ -32,5 +32,9 @@ DB_PASSWORD=your password
 
 the project is ready on http://localhost:8000/
 
+for caching some variables, run:
+- php artisan config:cache  => to cache variables
+- php artisan config:clear => to clear cached variables
+
 for testing run:
 - php artisan test
