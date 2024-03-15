@@ -14,8 +14,8 @@ class FavouriteAlbumPolicy
       }
   
       // Authorize the user to delete their own favourite album
-      public function destroy(User $user, FavouriteAlbum $favouriteAlbum, string $mbid): bool
+      public function destroy(User $user, FavouriteAlbum $favouriteAlbum): bool
       {
-          return $user->id === $favouriteAlbum->user_id && $favouriteAlbum->album_mbid === $mbid;
+          return $user->id === $favouriteAlbum->user_id;
       }
 }

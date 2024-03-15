@@ -14,8 +14,8 @@ class FavouriteArtistPolicy
     }
 
     // Authorize the user to delete their own favourite artist
-    public function destroy(User $user, FavouriteArtist $favouriteArtist, string $mbid): bool
+    public function destroy(User $user, FavouriteArtist $favouriteArtist): bool
     {
-        return $user->id === $favouriteArtist->user_id && $favouriteArtist->artist_mbid === $mbid;
+        return $user->id === $favouriteArtist->user_id;
     }
 }

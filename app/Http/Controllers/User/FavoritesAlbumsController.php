@@ -38,7 +38,7 @@ class FavoritesAlbumsController extends Controller
             ->where('album_mbid', $mbid)
             ->firstOrFail();
 
-        $this->authorize('destroy', [$favouriteAlbum, $mbid]);
+        $this->authorize('destroy', $favouriteAlbum);
 
         $favouriteAlbum->delete();
 
