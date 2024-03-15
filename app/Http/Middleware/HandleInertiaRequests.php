@@ -46,8 +46,8 @@ class HandleInertiaRequests extends Middleware
                 'name' => Auth::user()->name,
                 'email' => Auth::user()->email,
                 'avatar' => Auth::user()->avatar,
-                'favourite_albums' => Auth::user() ? Auth::user()->favouriteAlbums()->get() : null,
-                'favourite_artists' => Auth::user() ? Auth::user()->favouriteArtists()->get() : null,
+                'favourite_albums' => Auth::user() ? Auth::user()->favouriteAlbums : null,
+                'favourite_artists' => Auth::user() ? Auth::user()->favouriteArtists : null,
             ] : null,
         ]);
     }
